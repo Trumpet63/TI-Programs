@@ -1,0 +1,8 @@
+
+ClrHome
+0->S
+dim(L1)->O
+For(Z,1,O)
+	S+1/L1(Z)->S
+	Disp S
+End

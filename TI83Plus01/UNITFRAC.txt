@@ -1,0 +1,22 @@
+
+ClrHome
+Input "NUMERATOR=?",R
+Input "DENOMINATOR=?",N
+1->M
+1->X
+Output(8,1,1)
+While M<999
+	Output(8,12,X)
+	(MN+X)/(RX-1)->Y
+	If Y<2
+	Then
+		0->X
+		M+1->M
+		Output(8,1,M)
+	End
+	If fPart(Y)=0 and fPart(XY/M)=0
+	Goto 2
+	X+1->X
+End
+Lbl 2
+Disp X,Y

@@ -1,0 +1,5 @@
+
+ClrHome
+For(A,1,9^99)
+	Output(1,1,sin(A))
+End

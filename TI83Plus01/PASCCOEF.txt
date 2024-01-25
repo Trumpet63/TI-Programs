@@ -1,0 +1,11 @@
+
+ClrHome
+Prompt A
+Prompt B
+Input "EXP=?",N
+N+1->dim(L3)
+For(R,1,N+1)
+	(N nCr (R-1))*B^(R-1)*A^(N-(R-1))->L3(R)
+End
+Disp "OUTPUT ON LIST 3"
+Stop

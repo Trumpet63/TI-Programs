@@ -1,0 +1,79 @@
+
+ClrHome
+Disp "THESE NUMBERS","ARE IN ORDER..\."
+32->dim(|LTMP)
+For(T,1,16)
+	randInt(0,9)->U
+	Output(4,T,U)
+	U->|LTMP(T)
+	U->|LTMP(T+16)
+End
+For(Z,1,1000)
+End
+ClrHome
+Disp "PRESS THE NUMBER","THATS DISPLAYED"
+For(Z,1,400)
+End
+Disp "READY?"
+For(Z,1,475)
+End
+ClrHome
+0->B
+0->C
+0->D
+Lbl 1
+If D=32
+Goto 3
+D+1->D
+0->A
+Lbl 2
+0->K
+Output(4,8,|LTMP(D))
+While K=0
+	A+1->A
+	getKey->K
+End
+ClrHome
+If K=45
+Stop
+If K=72 and |LTMP(D)=7 or K=73 and |LTMP(D)=8 or K=74 and |LTMP(D)=9 or K=82 and |LTMP(D)=4 or K=83 and |LTMP(D)=5 or K=84 and |LTMP(D)=6 or K=92 and |LTMP(D)=1 or K=93 and |LTMP(D)=2 or K=94 and |LTMP(D)=3 or K=102 and |LTMP(D)=0
+Then
+	C+A->C
+Else
+	A+25->A
+	Goto 2
+End
+Goto 1
+Lbl 3
+round(1000000/(C/32),0)->S
+5->dim(|LPH2)
+Disp "SCORE=",S,""
+If S>|LPH2(5)
+Then
+	Disp "NEW HIGH SCORE!"
+	S->|LPH2(5)
+	SortD(|LPH2)
+Else
+	Disp "NO HIGH SCORE..\."
+End
+Pause 
+Disp "","","","","","","","==HIGH  SCORES==","","1."
+Output(7,11,|LPH2(1))
+Disp "2."
+Output(7,11,|LPH2(2))
+Disp "3."
+Output(7,11,|LPH2(3))
+Disp "4."
+Output(7,11,|LPH2(4))
+Disp "5."
+Output(7,11,|LPH2(5))
+If S=|LPH2(1)
+Output(3,16,"*")
+If S=|LPH2(2)
+Output(4,16,"*")
+If S=|LPH2(3)
+Output(5,16,"*")
+If S=|LPH2(4)
+Output(6,16,"*")
+If S=|LPH2(5)
+Output(7,16,"*")

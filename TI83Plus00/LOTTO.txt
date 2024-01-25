@@ -1,0 +1,151 @@
+
+ClrHome
+Disp "LETS PLAY THE..\."
+Pause 
+Disp "FLORIDA LOTTERY!"
+Pause 
+Lbl 1
+ClrHome
+Menu(" FLORIDA LOTTO! ","PICK NUMBERS",PN,"ODDS",OO,"OTHER LOTTERYS",OL,"HELP!",HP,"QUIT",QT)
+Lbl HP
+ClrHome
+Disp "FOR THE FLORIDA","LOTTERY, 6 NUM.","1-53"
+Pause 
+ClrHome
+Disp "MATCH3: 3 0-9","PLAY4: 4 0-9","FANTASY5: 5 0-36","OMG: 7 0-100"
+Pause 
+ClrHome
+Goto 1
+Lbl QT
+ClrHome
+Stop
+Lbl PN
+ClrHome
+Input "1ST NUMBER: ",A
+Input "2ND NUMBER: ",B
+Input "3RD NUMBER: ",C
+Input "4TH NUMBER: ",D
+Input "5TH NUMBER: ",E
+Input "6TH NUMBER: ",F
+randInt(1,53)->G
+randInt(1,53)->H
+randInt(1,53)->I
+randInt(1,53)->J
+randInt(1,53)->K
+randInt(1,53)->L
+ClrHome
+Output(7,12,"YOURS")
+Disp A,B,C,D,E,F
+Pause 
+Output(7,1,"LOTTO")
+Pause 
+Output(1,1,G)
+Pause 
+Output(2,1,H)
+Pause 
+Output(3,1,I)
+Pause 
+Output(4,1,J)
+Pause 
+Output(5,1,K)
+Pause 
+Output(6,1,L)
+If A=F and B=G and C=H and D=I and E=J
+Output(8,1,"YOU WON!!!!")
+Stop
+Lbl OO
+ClrHome
+Menu("CHANCE OF MATCH:","ONE",ON,"TWO",TW,"THREE",TH,"FOUR",FO,"FIVE",FI,"ALL",AL,"BACK",B1)
+Lbl B1
+Goto 1
+Lbl ON
+Disp "1 IN","53"
+Pause 
+Goto OO
+Lbl TW
+Disp "1 IN","3080"
+Pause 
+Goto OO
+Lbl TH
+Disp "1 IN","166320"
+Pause 
+Goto OO
+Lbl FO
+Disp "1 IN","8814960"
+Pause 
+Goto OO
+Lbl FI
+Disp "1 IN","485377920"
+Pause 
+Goto OO
+Lbl AL
+Disp "1 IN"
+Output(2,1,"23377273920")
+Pause 
+Goto OO
+Stop
+Lbl OL
+ClrHome
+Menu("OTHER LOTTERIES:","MATCH 3 >9",M3,"PLAY 4 >20",P4,"FANTASY 5 >30",F5,"OMG LOTTO >100",OG,"BACK",B2)
+Lbl B2
+Goto 1
+Lbl M3
+9->A
+3->B
+Goto 2
+Lbl P4
+20->A
+4->B
+Goto 2
+Lbl F5
+30->A
+5->B
+Goto 2
+Lbl OG
+100->A
+7->B
+Goto 2
+Stop
+Lbl 2
+0->C
+0->D
+Input "1ST NUMBER: ",E
+Input "2ND NUMBER: ",F
+Input "3RD NUMBER: ",G
+If B=3
+Goto 3
+Input "4TH NUMBER: ",H
+If B=4
+Goto 3
+Input "5TH NUMBER: ",I
+If B=5
+Goto 3
+Input "6TH NUMBER: ",J
+If B=6
+Goto 3
+Input "7TH NUMBER: ",K
+Lbl 3
+ClrHome
+Disp E,F,G
+If B=3
+Goto 4
+Disp H
+If B=4
+Goto 4
+Disp I
+If B=5
+Goto 4
+Disp J,K
+Lbl 4
+Output(8,1,"           YOURS")
+0->L
+1->M
+Output(8,1,"LOTTO")
+While L!=B
+	Pause 
+	randInt(1,A)->N
+	Output(M,1,N)
+	L+1->L
+	M+1->M
+End
+Stop

@@ -1,0 +1,30 @@
+
+ClrHome
+Disp "VECTOR 1"
+Input "I=",A
+Input "J=",B
+Input "K=",C
+Disp "","VECTOR 2"
+Input "I=",D
+Input "J=",E
+Input "K=",F
+ClrHome
+Output(1,1,"I=")
+Output(2,1,"J=")
+Output(3,1,"K=")
+B->[B](1,1)
+C->[B](1,2)
+E->[B](2,1)
+F->[B](2,2)
+Output(1,4,det([B]))
+C->[B](1,1)
+A->[B](1,2)
+F->[B](2,1)
+D->[B](2,2)
+Output(2,4,det([B]))
+A->[B](1,1)
+B->[B](1,2)
+D->[B](2,1)
+E->[B](2,2)
+Output(3,4,det([B]))
+Stop

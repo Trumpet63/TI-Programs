@@ -1,0 +1,527 @@
+
+Lbl 1
+ClrHome
+ClrDraw
+Menu("THE LONE SOLDIER","NEW GAME",AA,"LOAD GAME",AB,"HOW TO PLAY",AC,"ABOUT",AD,"QUIT",AE)
+Lbl AC
+ClrHome
+ClrDraw
+Disp "THIS GAME VERY","SIMILAR TO THE","OTHER RPG'S YOU","MAY HAVE PLAYED","BEFORE, BUT","THERE ARE A FEW","THINGS THAT NEED"
+Output(8,1,"EXPLINATION..\.")
+Pause 
+ClrHome
+Disp "DURING BATTLE","YOU CAN CHOOSE","FROM 3 ATTACKS:","IN ORDER OF","RANDOMNESS:","-GAMBLE","-SLASH"
+Output(8,1,"-THRUST")
+Pause 
+ClrHome
+Disp "YOU CAN ALSO:","-GUARD (HEALS)","-AND FLEE, (DUH)","-ENHANCE YOUR","EQUIPMENT AT THE","BLACKSMITH.","-ONLY ONE SAVE"
+Output(8,1,"HAVE FUN!!")
+Pause 
+ClrHome
+Goto 1
+Stop
+Lbl AB
+ClrHome
+Disp "LOADING GAME..\.."
+26->dim(|LSLDR)
+|LSLDR(1)->A
+|LSLDR(2)->B
+|LSLDR(3)->C
+|LSLDR(4)->D
+|LSLDR(5)->E
+|LSLDR(6)->F
+|LSLDR(7)->G
+|LSLDR(8)->H
+|LSLDR(9)->I
+|LSLDR(10)->J
+|LSLDR(11)->K
+|LSLDR(12)->L
+|LSLDR(13)->M
+|LSLDR(14)->N
+|LSLDR(15)->O
+|LSLDR(16)->P
+|LSLDR(17)->Q
+|LSLDR(18)->R
+|LSLDR(19)->S
+|LSLDR(20)->T
+|LSLDR(21)->U
+|LSLDR(22)->V
+|LSLDR(23)->W
+|LSLDR(24)->X
+|LSLDR(25)->Y
+|LSLDR(26)->Z
+ClrHome
+Disp "  GAME LOADED!  "
+Pause 
+ClrHome
+Goto 2
+Stop
+ClrHome
+Disp "  GAME LOADED!  "
+Pause 
+ClrHome
+Goto 2
+Stop
+Lbl AE
+ClrDraw
+ClrHome
+Stop
+Lbl AD
+ClrHome
+Disp "<  CREATED BY  >"," JEFFREY SPRENG ","","<   STARTED:   >","    7/13/07     ","<   FINISHED   >","   8/12/07     "
+Pause 
+ClrHome
+Goto 1
+Stop
+Lbl AA
+ClrHome
+ClrDraw
+Disp "IN A WORLD WITH","NO HOPE OF EVER","RECOVERING FROM","THE DARK AGE","THAT HAD CLAIMED","THEIR KINGS LIFE"
+Pause 
+ClrHome
+Disp "A PROPHECY AROSE","THAT FORETOLD OF","A NOBLE SOLDIER","THAT WOULD RID","THE WORLD OF THE","EVIL CREATURES","THAT HAD PLAUGED"
+Output(8,1,"THE LAND.")
+Pause 
+ClrHome
+Disp "YOU ARE THIS","SOLDIER, YOU AND","YOU ALONE CAN","SAVE THIS WORLD","FROM IT'S DOOMED","PAST AND FUTURE."
+Pause 
+ClrHome
+1->A
+60->B
+8->C
+8->D
+1->E
+1->F
+0->G
+100->H
+1->I
+0->J
+60->K
+0->L
+0->M
+50->N
+0->O
+0->P
+0->Q
+0->R
+0->S
+0->T
+0->U
+0->V
+0->W
+0->X
+0->Y
+Lbl 2
+0->Z
+0.75C->G
+G+0.8F->G
+round(G,0)->G
+0.75D->R
+R+0.8E->R
+round(R,0)->R
+ClrDraw
+ClrHome
+If O>=N
+Goto 9
+Menu(" YOUR HOMETOWN: ","BLACKSMITH",AF,"STATISTICS",AG,"TO BATTLE!",AH,"SAVE GAME ",AI,"QUIT",AJ)
+Lbl AJ
+Goto 1
+Stop
+Lbl AI
+ClrHome
+Disp " SAVING GAME..\. "
+A->|LSLDR(1)
+B->|LSLDR(2)
+C->|LSLDR(3)
+D->|LSLDR(4)
+E->|LSLDR(5)
+F->|LSLDR(6)
+G->|LSLDR(7)
+H->|LSLDR(8)
+I->|LSLDR(9)
+J->|LSLDR(10)
+K->|LSLDR(11)
+L->|LSLDR(12)
+M->|LSLDR(13)
+N->|LSLDR(14)
+O->|LSLDR(15)
+P->|LSLDR(16)
+Q->|LSLDR(17)
+R->|LSLDR(18)
+S->|LSLDR(19)
+T->|LSLDR(20)
+U->|LSLDR(21)
+V->|LSLDR(22)
+W->|LSLDR(23)
+X->|LSLDR(24)
+Y->|LSLDR(25)
+Z->|LSLDR(26)
+ClrHome
+Disp "  GAME SAVED!!  "
+Pause 
+ClrHome
+Menu("SAVE TO 2P FILE?","YES",TY,"NO",TN)
+Lbl TN
+ClrHome
+Goto 2
+Stop
+Lbl TY
+ClrHome
+Menu(" SAVE TO WHICH? ","1ST PLAYER",TA,"2ND PLAYER",TB)
+Lbl TA
+|LSLDR->|LSLDR1
+Goto 2
+Stop
+Lbl TB
+|LSLDR->|LSLDR2
+Goto 2
+Stop
+Lbl AG
+ClrHome
+Disp "LEVEL=",A,"CURRENT HEALTH=",B,"TOTAL HEALTH=",K
+Pause 
+ClrHome
+Disp "STRENGTH=",C,"DEFENSE=",D,"SHIELD DEFENSE=",E
+Pause 
+ClrHome
+Disp "SWORD STRENGTH=",F,"BOSSES BEATEN=",(I-1),"BASE DAMAGE=",G
+Pause 
+ClrHome
+Disp "BASE DEFENSE",R,"","CURRENT EXP. =",O,"EXP. TO LEVEL=",N
+Pause 
+ClrHome
+Goto 2
+Stop
+Lbl AH
+ClrHome
+ClrDraw
+If I=7
+2000->J
+If I=7
+45->L
+If I=7
+15->M
+If I=7
+Goto 3
+Menu(" BATTLE GROUNDS ","EASY ENEMY",AK,"MEDIUM ENEMY",AL,"HARD ENEMY",AM,"BOSS ENEMY",AN,"BACK",AO)
+Lbl AO
+Goto 2
+Stop
+Lbl AK
+50I->J
+5I->L
+2I->M
+Goto 3
+Stop
+Lbl AL
+60I->J
+7I->L
+5I->M
+Goto 3
+Stop
+Lbl AM
+80I->J
+8I->L
+8I->M
+Goto 3
+Stop
+Lbl AN
+100I->J
+10I->L
+8I->M
+Goto 3
+Stop
+Lbl 3
+0->Z
+ClrHome
+Output(7,1,"YOU=")
+Output(8,1,B)
+Output(7,10,"ENEMY=")
+If B<=0
+Goto 5
+Output(8,12,J)
+Disp "   YOUR TURN.   "
+Pause 
+ClrHome
+Menu("   YOUR TURN:   ","GAMBLE",AP,"THRUST",AQ,"SLASH",AR,"GUARD",AS,"FLEE",AT)
+Lbl AS
+1.25(.1K)->U
+0.75(.1K)->T
+round(U,0)->U
+round(T,0)->T
+1->Z
+Goto 4
+Stop
+Lbl AT
+ClrHome
+Goto 2
+Stop
+Lbl AP
+0->P
+2G->Q
+Goto 4
+Stop
+Lbl AQ
+.75G->P
+1.25G->Q
+round(P,0)->P
+round(Q,0)->Q
+Goto 4
+Stop
+Lbl AR
+.5G->P
+1.5G->Q
+round(P,0)->P
+round(Q,0)->Q
+Goto 4
+Stop
+Lbl ZA
+Disp "YOU GUARD AND","RECOVER HEALTH:"
+randInt(T,U)->S
+Disp S
+B+S->B
+If B>K
+K->B
+Goto ZB
+Stop
+Lbl 4
+ClrHome
+Output(7,1,"YOU=")
+Output(8,1,B)
+Output(7,10,"ENEMY=")
+Output(8,12,J)
+Disp "   YOUR TURN.   "
+Pause 
+If Z=1
+Goto ZA
+Disp "YOU ATTACK FOR:"
+randInt(P,Q)->V
+V-(.15M)->V
+round(V,0)->V
+Disp V
+J-V->J
+Lbl ZB
+Pause 
+ClrHome
+Output(7,1,"YOU=")
+Output(8,1,B)
+Output(7,10,"ENEMY=")
+Output(8,12,J)
+Pause 
+If J<=0
+Goto 6
+Disp "  ENEMY'S TURN  "
+Pause 
+Disp "ATTACKS FOR:"
+1.3L->Y
+0.7L->X
+round(Y,0)->Y
+round(X,0)->X
+randInt(X,Y)->W
+If Z=1
+W/2->W
+If Z=1
+round(W,0)->W
+W-(.15R)->W
+round(W,0)->W
+If W<0
+0->W
+Disp W
+Pause 
+ClrHome
+B-W->B
+Goto 3
+Stop
+Lbl 5
+Disp "    YOU LOST    "
+Pause 
+Disp "","   GAME OVER.   "
+Pause 
+ClrHome
+Goto 1
+Stop
+Lbl 6
+Pause 
+ClrHome
+Disp "    YOU WON!    "
+Pause 
+ClrHome
+0->Z
+Z+L+M->Z
+round(Z,0)->Z
+2Z->Z
+If L=10I
+5Z->Z
+If I=7
+50Z->Z
+Disp "   YOU GAINED   ",Z,"   EXPERIENCE   "
+Pause 
+ClrHome
+O+Z->O
+Disp "   YOUR EXP.=   ",O," EXP. TO LEVEL= ",N
+Pause 
+ClrHome
+0->Z
+Disp "YOU OBTAINED"
+randInt(C,10C)->Z
+H+Z->H
+Disp Z
+Disp "GOLD PIECES"
+Pause 
+Disp "YOUR GOLD=",H
+Pause 
+ClrHome
+If L=10I
+Disp "BOSS DEFEATED","NEW ENEMIES","AVAILABLE"
+If L=10I
+Pause 
+If L=10I
+ClrHome
+If L=10I
+I+1->I
+If I=5
+Disp "AS YOU PROGRESS","THROUGH THE","BATTLEFIELD YOU","CATCH A GLIMPSE","OF THE LEADER","OF THE UNDEAD","ARMIES."
+If I=5
+Pause 
+If I=5
+ClrHome
+If I=5
+Disp "THE FINAL BATTLE","CANT BE FAR OFF."
+If I=5
+Pause 
+If I=5
+ClrHome
+If I=6
+Disp "AS THE BATTLE-","FIELD CLEARS OUT","ONLY ONE REMAINS","THE WORLD'S","SALVATION RESTS","ON YOUR ACTIONS."
+If I=6
+Pause 
+If I=6
+ClrHome
+If I=7
+Goto UW
+If I=6
+I+1->I
+Lbl UX
+If O>=N
+Goto 9
+Goto 2
+Stop
+Lbl UW
+ClrHome
+Disp "CONGRATULATIONS!","","YOU HAVE SLAIN","THE LEADER","OF THE UNDEAD","AND THE PEOPLE","HAVE CROWNED YOU"
+Pause 
+ClrHome
+Disp "TO BE THEIR KING","","..\. BUT THERE","HAVE BEEN RUMORS","OF FORCES RISING","IN FOREIGN KING-","DOMS. YOU FEEL"
+Pause 
+ClrHome
+Disp "THAT THE WORLD","WILL NEVER BE","IN TOTAL PEACE.","","YOU HAVE BEEN","AWARDED 20000 G"
+H+20000->H
+8->I
+Pause 
+ClrHome
+Goto UX
+Stop
+Lbl 9
+Disp "   LEVEL UP!!   "
+Pause 
+ClrHome
+Disp "HEALTH+"
+randInt(5,15)->Z
+K+Z->K
+K->B
+Disp Z
+Disp "STRENGTH+"
+randInt(1,3)->Z
+C+Z->C
+Disp Z
+Disp "DEFENSE+"
+randInt(1,3)->Z
+D+Z->D
+Disp Z
+Disp "LEVEL+"
+Output(8,16,1)
+A+1->A
+Pause 
+ClrHome
+Disp "HEALTH=",B,"STRENGTH=",C,"DEFENSE=",D,"LEVEL="
+Output(8,14,A)
+Pause 
+ClrHome
+0->Z
+N*1.1->N
+N+50->N
+round(N,0)->N
+Disp "CURRENT EXP.",O,"EXP. TO LEVEL",N
+Pause 
+ClrHome
+Goto 2
+Stop
+Lbl AF
+ClrHome
+ClrDraw
+Menu(" ENHANCE WHAT: ?","SHIELD",AU,"SWORD",AV,"FULL HEAL",AW,"BACK",AX)
+Lbl AX
+ClrHome
+Goto 2
+Stop
+Lbl AW
+ClrHome
+Disp " COST= 150 GOLD ","","YOUR GOLD=",H
+Pause 
+ClrHome
+Lbl ZC
+Menu(" BUY FULL HEAL? ","YES",AY,"NO",AZ)
+Lbl AY
+ClrHome
+If H<150
+Goto ZC
+H-150->H
+K->B
+Disp "  FULLY HEALED  ","   YOUR GOLD=   ",H
+Pause 
+ClrHome
+Goto AF
+Stop
+Lbl AZ
+Goto AF
+Stop
+Lbl AU
+ClrHome
+Disp " COST= 200 GOLD ","","YOUR GOLD=",H
+Pause 
+ClrHome
+Lbl ZD
+Menu("ENHANCE SHIELD? ","YES",BA,"NO",BB)
+Lbl BA
+If H<200
+Goto ZD
+H-200->H
+E+1->E
+Disp "SHIELD ENHANCED:","SHIELD DEFENSE=",E,"","YOUR GOLD=",H
+Pause 
+ClrHome
+Goto AF
+Stop
+Lbl BB
+Goto AF
+Stop
+Lbl AV
+ClrHome
+Disp " COST= 200 GOLD ","","YOUR GOLD=",H
+Pause 
+ClrHome
+Lbl ZE
+Menu(" ENHANCE SWORD? ","YES",BC,"NO",BD)
+Lbl BC
+If H<200
+Goto ZE
+H-200->H
+F+1->F
+Disp "SWORD ENHANCED","SWORD STRENGTH=",F,"","YOUR GOLD=",H
+Pause 
+ClrHome
+Goto AF
+Stop
+Lbl BD
+Goto AF
+Stop

@@ -1,0 +1,110 @@
+
+5->dim(|LARAIN)
+ClrHome
+4->A
+8->B
+0->C
+0->D
+0->G
+Output(1,1,"OOOOOOOOOOOOOOOO")
+Output(2,1,"OOOOOOOOOOOOOOOO")
+Output(3,1,"OOOOOOOOOOOOOOOO")
+Output(4,1,"OOOOOOOOOOOOOOOO")
+Output(5,1,"OOOOOOOOOOOOOOOO")
+Output(6,1,"OOOOOOOOOOOOOOOO")
+Output(7,1,"OOOOOOOOOOOOOOOO")
+Output(8,1,"OOOOOOOOOOOOOOOO")
+Output(1,5,"ACIDRAIN")
+Output(2,1,"BY:JEFFREYSPRENG")
+Pause 
+Output(1,5,"OOOOOOOO")
+Output(2,1,"OOOOOOOOOOOOOOOO")
+Output(4,8,"X"
+Lbl 1
+0->F
+While F=0
+	randInt(1,8)->C
+	randInt(1,16)->D
+	Output(C,D," "
+	If C=A and D=B
+	Goto 2
+	G+1->G
+	Output(8,1,G)
+	Output(A,B,"X"
+	getKey->F
+End
+If F=24
+B-1->B
+If F=25
+A-1->A
+If F=26
+B+1->B
+If F=34
+A+1->A
+If A<1
+1->A
+If A>8
+8->A
+If B<1
+1->B
+If B>16
+16->B
+If F=45
+Goto 2
+Goto 1
+Stop
+Lbl 2
+ClrHome
+Disp "   GAME OVER.   ","","SCORE= "
+Output(3,8,G)
+Disp ""
+If G<|LARAIN(5)
+Disp " NO HIGH SCORE."
+Pause 
+If G>|LARAIN(1)
+Goto 3
+If G>|LARAIN(2)
+Goto 4
+If G>|LARAIN(3)
+Goto 5
+If G>|LARAIN(4)
+Goto 6
+If G>|LARAIN(5)
+G->|LARAIN(5)
+Lbl 7
+ClrHome
+Disp "===HIGHSCORES===","1.","2.","3.","4.","5."
+Output(2,4,|LARAIN(1))
+Output(3,4,|LARAIN(2))
+Output(4,4,|LARAIN(3))
+Output(5,4,|LARAIN(4))
+Output(6,4,|LARAIN(5))
+Pause 
+ClrHome
+Stop
+Lbl 3
+|LARAIN(4)->|LARAIN(5)
+|LARAIN(3)->|LARAIN(4)
+|LARAIN(2)->|LARAIN(3)
+|LARAIN(1)->|LARAIN(2)
+G->|LARAIN(1)
+Goto 7
+Stop
+Lbl 4
+|LARAIN(4)->|LARAIN(5)
+|LARAIN(3)->|LARAIN(4)
+|LARAIN(2)->|LARAIN(3)
+G->|LARAIN(2)
+Goto 7
+Stop
+Lbl 5
+|LARAIN(4)->|LARAIN(5)
+|LARAIN(3)->|LARAIN(4)
+G->|LARAIN(3)
+Goto 7
+Stop
+Lbl 6
+|LARAIN(4)->|LARAIN(5)
+G->|LARAIN(4)
+Goto 7
+Stop

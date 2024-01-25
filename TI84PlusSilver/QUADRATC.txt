@@ -1,0 +1,12 @@
+
+ClrHome
+Prompt A
+Prompt B
+Prompt C
+ClrHome
+Disp "X="
+(~B+sqrt(B^^2-4AC))/(2A)->P
+Disp P
+Disp "X="
+(~B-sqrt(B^^2-4AC))/(2A)->Q
+Disp Q,""

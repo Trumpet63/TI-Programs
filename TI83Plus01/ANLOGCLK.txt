@@ -1,0 +1,58 @@
+
+~1->Xmin
+1->Xmax
+~1->Ymin
+1->Ymax
+90->A
+90->B
+96->O
+ClrDraw
+Circle(0,0,1)
+0->T
+0->U
+0->V
+0->W
+0->X
+0->Y
+~1->I
+~1->K
+Pause 
+Lbl 2
+0->J
+K+1->K
+O-6->O
+Lbl 1
+While I<60
+	For(Q,1,146)
+	End
+	I+1->I
+	Text(0,0,I)
+	Text(0,82,J)
+	Text(56,80,K)
+	cos(A^^o)->C
+	sin(A^^o)->D
+	cos(B^^o)->E
+	sin(B^^o)->F
+	cos(O^^o)->G
+	sin(O^^o)->H
+	Line(0,0,T,U,0)
+	Line(0,0,V,W,0)
+	Line(0,0,X,Y,0)
+	C->X
+	D->Y
+	E->V
+	F->W
+	G->T
+	H->U
+	Line(0,0,X,Y)
+	Line(0,0,V,W)
+	Line(0,0,T,U)
+	A-6->A
+End
+0->I
+J+1->J
+B-6->B
+If J=60
+Goto 2
+Goto 1
+Stop

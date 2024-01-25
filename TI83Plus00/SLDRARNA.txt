@@ -1,0 +1,169 @@
+
+Lbl 1
+ClrHome
+Menu(" SOLDIER ARENA! ","LOAD PLAYERS",AA,"INSTRUCTIONS",AB,"ABOUT",AC,"QUIT",AD)
+Lbl AA
+ClrHome
+Disp "   LOADING..\.   ","","(P1)"
+|LSLDR1(1)->A
+|LSLDR1(2)->C
+|LSLDR1(3)->E
+|LSLDR1(4)->W
+|LSLDR1(5)->G
+G+E->G
+.2G->G
+round(G,0)->G
+G->M
+|LSLDR1(6)->G
+G+W->G
+.2G->G
+round(G,0)->G
+G->O
+|LSLDR1(8)->Q
+|LSLDR1(11)->Y
+|LSLDR1(14)->U
+|LSLDR1(15)->S
+Disp "DONE.","(P2)"
+|LSLDR2(1)->B
+|LSLDR2(2)->D
+|LSLDR2(3)->F
+|LSLDR2(4)->X
+|LSLDR2(5)->G
+G+F->G
+.2G->G
+round(G,0)->G
+G->N
+|LSLDR2(6)->G
+G+X->G
+.2G->G
+round(G,0)->G
+G->P
+|LSLDR2(8)->R
+|LSLDR2(11)->Z
+|LSLDR2(14)->V
+|LSLDR2(15)->T
+Disp "DONE.","PLAYERS LOADED!"
+Pause 
+ClrHome
+Lbl 2
+ClrHome
+Y->C
+Z->D
+If S>U or T>V
+Goto 3
+Menu("  ARENA LOBBY:  ","TO BATTLE!",AE,"STATISTICS",AF,"GAMBLING",AG,"QUIT",AH)
+Lbl AH
+ClrHome
+Goto 1
+Stop
+Lbl AG
+ClrHome
+Lbl 4
+Menu(" GAMBLING HALL: ","PLAY",AI,"RULES",AJ,"LEAVE",AK)
+Lbl AI
+ClrHome
+Menu("  PLAY OPTIONS  ","CO-OP",AL,"VS.",AM,"BACK",AN)
+Lbl AL
+1->G
+Lbl 5
+ClrHome
+Menu("  OPTIONS MENU  ","PLACE BETS",AO,"LEAVE",AP)
+Lbl AP
+ClrHome
+Goto 4
+Stop
+Lbl AO
+Disp "      (P1)      ","","GOLD=",Q,"","BET HOW MUCH?   "
+Input H
+Q-H->Q
+ClrHome
+Disp "      (P2)      ","","GOLD=",R,"","BET HOW MUCH?   "
+Input I
+R-I->R
+ClrHome
+Disp "(P1)..\..\..\..\..0 ","(P2)..\..\..\..\..0 "
+If G=1
+Disp "","","","     DEALER     ","       0        "
+Pause 
+randInt(1,13)->J
+randInt(1,13)->K
+randInt(1,13)->L
+Output(1,15,J)
+Output(2,15,K)
+If G=1
+Goto 6
+Pause 
+If J>K
+Goto 7
+If K>J
+Goto 8
+Stop
+Lbl 6
+Output(7,8,L)
+Pause 
+ClrHome
+If L>J
+Disp "P1 LOST"
+If J>L
+Disp "P1 WON"
+If J>L
+
+If J>L
+
+If J>L
+
+
+
+
+
+
+
+
+
+Lbl AN
+ClrHome
+Goto 4
+Stop
+Lbl AJ
+ClrHome
+Disp "THIS PLACE IS","FOR HEAD TO HEAD","GAMBLING WITH","THE GOLD THAT","YOU HAVE EARNED."
+Pause 
+ClrHome
+Disp "YOU BOTH ATTEMPT","TO GET A NUMBER","HIGHER THAN THE","COMPUTER OR EACH","OTHER, YOU WIN","1.5* YOUR BET","YOUR GOLD IS",
+Output(8,1,"ALWAYS DISPLAYED")
+Pause 
+ClrHome
+Goto 4
+Stop
+Lbl AK
+ClrHome
+Goto 2
+Stop
+Lbl AH
+ClrHome
+Stop
+Stop
+Lbl AB
+ClrHome
+Disp "THIS PROGRAM WAS","CREATED TO GIVE","PLAYERS OF","THE LONE SOLDIER","COMPETITION WITH","THEIR FRIENDS!"
+Pause 
+ClrHome
+Disp "IT IS DESIGNED","TO GIVE BOTH OF","THE PLAYERS A","CHALLENGE IN","BATTLES.","YOU CAN EVEN GET","EXPERIENCE FOR"
+Output(8,1,"BOTH CHARACTERS!")
+Pause 
+ClrHome
+Disp "IT LOADS THE 2P","FILES CREATED","OPTIONALLY BY","THE LONE SSLDIER","GAME.","(DOES NOT HARM-","-ORIGINAL FILES)"
+Pause 
+ClrHome
+Goto 1
+Stop
+Lbl AC
+ClrHome
+Disp "<  CREATED BY  >"," JEFFREY SPRENG ","","<    STARTED   >","    8/20/07     ","<   FINISHED   >","    8/20/07     "
+Pause 
+ClrHome
+Goto 1
+Stop
+Lbl AD
+ClrHome
+Stop

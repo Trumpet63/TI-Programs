@@ -1,0 +1,144 @@
+
+ClrHome
+Goto 1
+Disp "****************","*SERIES**HELPER*","*COPYRIGHT 2013*","*JEFFREY SPRENG*","****************",""," LICENSED UNDER "
+Output(8,2,"CC BY SA NO C")
+For(Z,1,800)
+End
+Lbl 1
+ClrHome
+Menu("SELECT SEQ. TYPE","ARITHMETIC",AA,"GEOMETRIC",AB,"QUIT",AC)
+Lbl AC
+Stop
+Lbl AA
+ClrHome
+Menu("   ARITHMETIC   ","NTH-TERM",A1,"PARTIAL SUM",A2,"COMMON DIFF.",A3,"TERM NUMBER",A4,"SIGMA NOTATION",A5,"<BACK",1)
+Lbl A1
+Input "A[1]=?",A
+Prompt N
+Prompt D
+Disp "","NTH TERM="
+A+(N-1)D->A
+Disp A
+Pause 
+Goto AA
+Stop
+Lbl A2
+Disp " IS A[N] KNOWN?"," 1=YES  2=NO"
+Input "?",Z
+ClrHome
+If Z=1
+Then
+	Input "A[1]=?",A
+	Input "A[N]=?",B
+	Prompt N
+	(N/2)(A+B)->A
+Else
+	Input "A[1]=?",A
+	Prompt D
+	Prompt N
+	(N/2)(2A+(N-1)D)->A
+End
+Disp "","SUM=",A
+Pause 
+Goto AA
+Stop
+Lbl A3
+Input "A[N1]=?",D
+Input "N1=?",A
+Input "A[N2]=?",E
+Input "N2=?",B
+(E-D)/(B-A)->A
+Disp "","COMMON DIFF.=",A
+Pause 
+Goto AA
+Stop
+Lbl A4
+Input "A[1]=?",A
+Prompt D
+Input "LAST TERM=?",B
+(B-A)/D+1->A
+Disp "","LAST TERM N=",A
+Pause 
+Goto AA
+Stop
+Lbl A5
+Prompt N
+Input "N MAX=?",M
+Input "N COEF.=?",D
+Input "CONSTANT=?",A
+((M-N+1)/2)(2(A+DN)+(M-N)D)->A
+Disp "","SUM=",A
+Pause 
+Goto AA
+Stop
+Lbl AB
+ClrHome
+Menu("   GEOMETRIC    ","NTH TERM",G1,"PARTIAL SUM",G2,"COMMON RATIO",G3,"TERM NUMBER",G4,"CONVERGENCE",G5,"SIGMA NOTATION",G6,"<BACK",1)
+Lbl G1
+Input "A[1]=?",A
+Prompt R
+Prompt N
+AR^(N-1)->A
+Disp "","A[N]=",A
+Pause 
+Goto AB
+Stop
+Lbl G2
+Input "A[1]=?",A
+Prompt R
+Prompt N
+(A(1-R^N))/(1-R)->A
+Disp "","SUM=",A
+Pause 
+Goto AB
+Stop
+Lbl G3
+Input "A[N1]=?",D
+Input "N1=?",A
+Input "A[N2]=?",E
+Input "N2=?",B
+B-A->N
+Nxroot(E/D)->A
+Disp "","COMMON RATIO=",A
+Pause 
+Goto AB
+Stop
+Lbl G4
+Input "A[1]=?",A
+Prompt R
+Input "LAST TERM=?",T
+log(T/A)/log(R)+1->A
+Disp "","LAST TERM N=",A
+Pause 
+Goto AB
+Stop
+Lbl G5
+Input "A[1]=?",A
+Prompt R
+Disp ""
+If R>~1 and R<1
+Then
+	A/(1-R)->A
+	Disp "CONVERGENT UPON",A
+Else
+	Disp "DIVERGENT"
+End
+Pause 
+Goto AB
+Stop
+Lbl G6
+Prompt N
+Input "N MAX=?",M
+Input "CONST. IN EXP.=?",C
+Input "BASE=?",R
+Input "COEF.=?",A
+N+1+C->N
+M+1+C->M
+(M-N+1)->N
+(A(1-R^N))/(1-R)->A
+RA->A
+Disp "","SUM=",A
+Pause 
+Goto AB
+Stop

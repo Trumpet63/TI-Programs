@@ -1,0 +1,68 @@
+
+Prompt R
+Prompt N
+ClrHome
+Output(1,1,R)
+2+iPart(log(R))->A
+Output(1,A,"/")
+Output(1,A+1,N)
+0->X
+0->A
+0->B
+If R=1
+1->X
+0->Y
+0->S
+Lbl 1
+While Y<=NX/2
+	X+1->X
+	RX-1->Y
+	Goto 9
+	Output(6,1,X)
+	Output(6,8,Y)
+	Pause 
+	Lbl 9
+	If iPart(NX/Y)=NX/Y and Y!=1
+	Then
+		If S>0
+		Then
+			NX/Y->C
+			NX->D
+		Else
+			NX/Y->A
+			NX->B
+		End
+		S+1->S
+	End
+	If (NX)/(RX-1)<round(N/R+0.5,0)
+	Goto 2
+End
+Lbl 2
+If A=0 and B=0
+Goto EE
+Output(2,2,"1/")
+Output(2,4,A)
+Output(3,2,"1/")
+Output(3,4,B)
+Output(8,15,S)
+Output(5,1,"CHECK=")
+If R/N=1/A+1/B
+Then
+	Output(5,7,"TRUE")
+Else
+	Output(5,7,"FALSE")
+End
+If S>1
+Then
+	B/N->X
+	0->S
+	0->Y
+	Pause 
+	Output(2,4,"            ")
+	Output(3,4,"            ")
+	Goto 1
+End
+Stop
+Lbl EE
+Output(5,1,"NO SOLUTION")
+Stop

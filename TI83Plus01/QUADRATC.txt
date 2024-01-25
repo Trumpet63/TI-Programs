@@ -1,0 +1,142 @@
+
+ClrHome
+Prompt A
+Prompt B
+Prompt C
+ClrHome
+B^^2-4AC->D
+2A->E
+~B->F
+A->P
+B->Q
+C->R
+0->A
+
+
+abs(D)->N
+2->X
+1->O
+While X^^2<=N
+	If fPart(N/X^^2)=0
+	Then
+		N/X^^2->N
+		OX->O
+		X-1->X
+	End
+	X+1->X
+End
+If O>99
+Then
+	3->A
+Else
+	If O>9
+	Then
+		2->A
+	Else
+		If O>1
+		1->A
+	End
+End
+0->X
+1->U
+While N/10^U>=1
+	X+1->X
+	U+1->U
+End
+If D<0
+~1N->N
+
+
+
+0->B
+While abs(iPart(E/(10^B)))>0
+	B+1->B
+End
+0->C
+While abs(iPart(F/(10^C)))>0
+	C+1->C
+End
+If D<0
+U+1->U
+If E<0
+B+1->B
+If F<0
+C+1->C
+If D=0
+A+1->A
+If F=0
+C+1->C
+If E=0
+B+1->B
+Output(2,1,"X=--------------")
+3->G
+Output(1,G,F)
+G+C->G
+
+
+Output(1,G,"+-sqrt(")
+G+2->G
+Output(1,G,O)
+G+A->G
+Output(1,G,"sqrt(")
+G+2->G
+Output(1,G,N)
+G+U->G
+Output(1,G,")"
+
+
+If G<16
+Output(2,G+1,"       ")
+G+3->G
+G-B/2->G
+round(G/2,0)->G
+Output(3,G,E)
+If E=0
+Then
+	Output(7,1,"DIVIDE BY ZERO")
+	Output(8,1,"NOT QUADRATIC")
+	Stop
+End
+If D<0
+Then
+	Output(7,1,"NONREAL ANSWER")
+	Stop
+End
+Output(5,1,"X1="
+Output(6,1,"X2="
+(F+sqrt(D))/E->G
+(F-sqrt(D))/E->H
+round(G,4)->G
+round(H,4)->H
+Output(5,4,G)
+Output(6,4,H)
+2->dim(L1)
+G->L1(1)
+H->L1(2)
+SortA(L1)
+(abs(G)+abs(H))/2->K
+~10->Xmin
+10->Xmax
+~10->Ymin
+10->Ymax
+L1(1)-K->Xmin
+L1(2)+K->Xmax
+"PX^^2+QX+R"->Str1
+Str1->{Y0}
+Output(7,1,"VX=")
+Output(8,1,"VY=")
+(~Q)/(2P)->K
+PK^^2+QK+R->L
+round(K,4)->K
+round(L,4)->L
+Output(7,4,K)
+Output(8,4,L)
+If P>0 and L<0
+1.8(L-.5)->Ymin
+If P<0 and L>0
+1.8(L+.5)->Ymax
+Pause 
+DispGraph
+Pt-On(G,0,2)
+Pt-On(H,0,2)
+Pt-On(K,L,2)

@@ -1,0 +1,12 @@
+
+ClrHome
+0->B
+1->A
+Disp 1
+While A<10^99
+	B+A->C
+	Disp C
+	Pause 
+	A->B
+	C->A
+End

@@ -1,0 +1,57 @@
+
+ClrHome
+Input "X1=",A
+Input "Y1=",E
+Disp ""
+Input "X2=",C
+Input "Y2=",D
+ClrHome
+Disp "DISTANCE="
+sqrt((C-A)^^2+(D-E)^^2)->N
+Output(1,10,round(N,3))
+Output(2,1,"MID(     ,     )"
+(A+C)/2->P
+(E+D)/2->Q
+Output(2,5,round(P,1))
+Output(2,11,round(Q,1))
+Output(3,1,"SLOPE=")
+(D-E)/(C-A)->M
+Output(3,7,round(M,4))
+Output(4,1,"Y-INTER=")
+E-MA->B
+Output(4,9,round(B,3))
+Output(5,1,"X-INTER=")
+Output(5,9,round(~(E-MA)/M,3))
+Output(7,1,"PT1(     ,     )"
+Output(8,1,"PT2(     ,     )"
+Output(7,5,round(A,2))
+Output(8,5,round(C,2))
+Output(7,11,round(E,2))
+Output(8,11,round(D,2))
+"MX+B"->{Y0}
+2->dim(|LX)
+2->dim(|LY)
+A->|LX(1)
+E->|LY(1)
+C->|LX(2)
+D->|LY(2)
+SortA(|LX)
+SortA(|LY)
+P-N/1.9->Xmin
+P+N/1.9->Xmax
+Q-N/1.9->Ymin
+Q+N/1.9->Ymax
+If Xmin>~(N/30)
+~(N/30)->Xmin
+If Ymin>~(N/38)
+~(N/38)->Ymin
+If Xmax<N/30
+N/30->Xmax
+If Ymax<N/38
+N/38->Ymax
+Pause 
+DispGraph
+Pt-On(A,E,2)
+Pt-On(C,D,2)
+Pt-On(P,Q,2)
+Stop

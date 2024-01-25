@@ -1,0 +1,58 @@
+
+ClrHome
+Func
+0->dim(|LAN)
+Disp "NUMBER OF INPUTS"
+Input "=? ",N
+N->dim(|LAN)
+ClrHome
+For(I,1,N)
+	"A"->Str0
+	
+	{0,1->L1
+	{0,I->L2
+	LinReg(ax+b) {Y0}
+	Equ>String({Y0},Str9)
+	sub(Str9,1,length(Str9)-3)->Str9
+	Str0+Str9+"= "->Str0
+	
+	Input Str0,A
+	A->|LAN(I)
+End
+0->dim(|LBN)
+N->dim(|LBN)
+|LAN(1)->|LBN(1)
+(|LAN(2)-|LBN(1)^^2)/|LBN(1)->|LBN(2)
+If N=2
+Goto 1
+(|LAN(3)-|LBN(1)*(|LBN(1)+|LBN(2))^^2)/(|LBN(1)*|LBN(2))->|LBN(3)
+If N=3
+Goto 1
+
+
+
+
+
+
+
+Lbl 1
+ClrHome
+1->I
+For(I,1,N)
+	Disp ""
+	Output(I,1,round(|LBN(I),4))
+End
+Disp ""
+Disp "GUESS FOR NEXT B"
+Input "=? ",B
+N+1->N
+N->dim(|LBN)
+B->|LBN(N)
+N->dim(|LAN)
+ClrHome
+If N=4
+Then
+	|LAN(3)*(2*|LBN(1)+2*|LBN(2)+|LBN(3)+|LBN(4))-|LAN(2)*(|LBN(1)*|LBN(3)+|LBN(1)*|LBN(4)+|LBN(2)*|LBN(4)+(|LBN(1)+|LBN(2))*(|LBN(1)+|LBN(2)+|LBN(3)+|LBN(4)))+|LBN(1)*(|LBN(1)+|LBN(2))*(|LBN(1)*|LBN(3)+|LBN(1)*|LBN(4)+|LBN(2)*|LBN(4))->|LAN(4)
+	Disp "A4="
+	Output(1,5,|LAN(4))
+End

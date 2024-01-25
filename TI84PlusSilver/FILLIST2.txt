@@ -1,0 +1,7 @@
+
+dim(L5)->A
+A->dim(L6)
+For(Z,1,A)
+	sum(L6,1,Z)->B
+	B->L1(Z)
+End

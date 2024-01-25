@@ -1,0 +1,465 @@
+
+ClrHome
+For(A,1,5)
+	Disp "A"," R","  C","   A","    D","     E"
+End
+Disp ""
+Output(8,1,"CLASSICS")
+Pause 
+ClrHome
+Lbl 1
+ClrHome
+Menu("ARCADE CLASSICS!","STOP GAMES",SG,"AGILITY TESTS",AT,"OBJECTIVE",OG,"QUIT",QU)
+Lbl ZZ
+Disp "THIS ZONE UNDER","CONSTRUCTION"
+Pause 
+Goto 1
+Stop
+Lbl QU
+Stop
+Lbl SG
+ClrHome
+Menu(">STOP GAMES","ROULETTE",RO,"NUMB3RS",NM,"SPREAD",SP,"<BACK",1)
+Lbl RO
+16->L
+1->M
+0->S
+Lbl R1
+M->B
+0->K
+Output(6,8,"^"
+While K=0
+	B-1->A
+	If A<M
+	L->A
+	Output(5,A," "
+	Output(5,B,"O"
+	getKey->K
+	B+1->B
+	If B>L
+	M->B
+End
+S+1->S
+If K=45
+Goto 1
+If B=9
+Then
+	Output(1,1,"WIN!")
+	Pause 
+	M+1->M
+	L-1->L
+	If L=8
+	Goto R2
+End
+If B!=9
+Then
+	Output(1,1,"LOSE")
+	16->L
+	1->M
+	Pause 
+End
+ClrHome
+Goto R1
+Stop
+Lbl R2
+ClrHome
+If S<120
+Disp "GAME COMPLETED!!"
+If S>119
+Disp "GAME FAILED","TRY AGAIN!"
+If S<25
+Disp "","YOUVE EARNED THE","MASTERS AWARD","FOR THIS GAME!!!"
+Pause 
+ClrHome
+Goto 1
+Stop
+Lbl NM
+24->A
+Output(5,9,"="
+0->S
+Lbl N1
+A-4->C
+Output(5,11," ")
+Output(5,10,C)
+0->B
+0->K
+While K=0
+	B+1->B
+	If B>A
+	1->B
+	Output(5,8," "
+	Output(5,7,B)
+	getKey->K
+End
+S+1->S
+If K=45
+Goto 1
+If B=C
+Then
+	Output(1,1,"WIN!")
+	Pause 
+	Output(1,1,"    ")
+	A-1->A
+	If A=4
+	Goto N2
+End
+If B!=C
+Then
+	Output(1,1,"LOSE"
+	Pause 
+	Output(1,1,"    "
+End
+Goto N1
+Stop
+Lbl N2
+ClrHome
+If S<200
+Disp "GAME COMPLETED!!"
+If S>199
+Disp "GAME FAILED","TRY AGAIN!"
+If S<60
+Disp "","YOUVE EARNED THE","MASTERS AWARD","FOR THIS GAME!!!"
+Pause 
+Goto 1
+Stop
+Lbl SP
+100->B
+1->C
+1->D
+0->S
+Lbl S1
+randInt(C,B)->A
+If D=1
+Output(7,4," "
+If D=1
+Output(7,9,"*"
+If D=2
+Output(7,9," "
+If D=2
+Output(7,4,"*"
+Output(6,4,"   ")
+Output(6,9,"   ")
+Output(6,4,C)
+Output(6,9,B)
+0->K
+Output(4,8,"   ")
+While K=0
+	getKey->K
+	A+1->A
+	If A>B
+	C->A
+	Output(4,8,A)
+End
+If K=45
+Goto 1
+S+1->S
+If D=1
+Then
+	A->B
+	If B-C<5
+	Goto S2
+	2->D
+	Goto S1
+End
+If D=2
+Then
+	A->C
+	If B-C<5
+	Goto S2
+	1->D
+	Goto S1
+End
+Goto S1
+Stop
+Lbl S2
+ClrHome
+Disp "FINAL SCORE=",S
+Pause 
+ClrHome
+If S<10
+Disp "GAME FAILED","TRY AGAIN!"
+If S>9
+Disp "GAME COMPLETED!!"
+If S>29
+Disp "","YOUVE EARNED THE","MASTERS AWARD","FOR THIS GAME!!!"
+Pause 
+Goto 1
+Stop
+Lbl AT
+ClrHome
+Menu(">AGILITY TESTS","D-PAD 1",DA,"D-PAD 2",DB,"D-PAD 3",DC,"<BACK",1)
+Lbl DA
+5->A
+0->B
+0->C
+0->D
+~1->T
+5->M
+Lbl D1
+Output(4,1,"                ")
+If T=5
+Then
+	~1->T
+	M+1->M
+	If M=14
+	Goto D3
+End
+T+1->T
+Output(5,1,D)
+0->K
+randInt(1,4)->C
+If C=1
+Output(5,16,"<"
+If C=2
+Output(5,16,"^"
+If C=3
+Output(5,16,">"
+If C=4
+Output(5,16,"V"
+While K=0
+	A+1->A
+	If A>16
+	M->A
+	A-1->B
+	If B<M
+	16->B
+	Output(4,B," "
+	Output(4,A,"O"
+	getKey->K
+	Output(3,8,"      ")
+End
+If K=45
+Goto 1
+If K=24 and C=1 and A>13
+Goto D2
+If K=25 and C=2 and A>13
+Goto D2
+If K=26 and C=3 and A>13
+Goto D2
+If K=34 and C=4 and A>13
+Goto D2
+Output(3,8,"BAD")
+D-2->D
+Goto D1
+Stop
+Lbl D2
+If A=16
+Then
+	Output(3,8,"GREAT!")
+	D+5->D
+End
+If A=15
+Then
+	Output(3,8,"GOOD")
+	D+3->D
+End
+If A=14
+Then
+	Output(3,8,"OK")
+	D+1->D
+End
+Goto D1
+Stop
+Lbl D3
+ClrHome
+Disp "FINAL SCORE:",D
+Pause 
+ClrHome
+If D>0
+Disp "GAME COMPLETED!!"
+If D<1
+Disp "GAME FAILED,","TRY AGAIN!"
+If D>200
+Disp "","YOUVE EARNED THE","MASTERS AWARD","FOR THIS GAME!!!"
+Pause 
+ClrHome
+Goto 1
+Stop
+Lbl DB
+Output(4,1,"1=EASY  2=NORMAL")
+Input "GAME DIFFICULTY:",M
+ClrHome
+8->dim(|LAD)
+1->|LAD(1)
+1->|LAD(2)
+1->|LAD(3)
+1->|LAD(4)
+1->|LAD(5)
+1->|LAD(6)
+1->|LAD(7)
+1->|LAD(8)
+Disp "","","","","","","",""
+0->S
+0->B
+While B<200
+	B+1->B
+	Output(1,4,"*"
+	Output(1,12,"*"
+	getKey->K
+	If M=1
+	Then
+		For(Q,1,25)
+		End
+	End
+	If K=45
+	Goto 1
+	If K=|LAD(1)
+	Then
+		S+1->S
+		Output(7,1,"GRE"
+		Output(8,1,"AT!"
+	End
+	Output(1,14,S)
+	randInt(1,5)->A
+	If A=1
+	Then
+		Output(8,5,"<"
+		24->|LAD(8)
+	End
+	If A=2
+	Then
+		Output(8,7,"^"
+		25->|LAD(8)
+	End
+	If A=3
+	Then
+		Output(8,9,"V"
+		34->|LAD(8)
+	End
+	If A=4
+	Then
+		Output(8,11,">"
+		26->|LAD(8)
+	End
+	Output(1,1,"  "
+	Disp ""
+	|LAD(2)->|LAD(1)
+	|LAD(3)->|LAD(2)
+	|LAD(4)->|LAD(3)
+	|LAD(5)->|LAD(4)
+	|LAD(6)->|LAD(5)
+	|LAD(7)->|LAD(6)
+	|LAD(8)->|LAD(7)
+End
+ClrHome
+Disp "FINAL SCORE=",S
+Pause 
+ClrHome
+If S<51
+Disp "GAME FAILED","TRY AGAIN!"
+If S>50
+Disp "GAME COMPLETED!!"
+If S>150
+Disp "","YOUVE EARNED THE","MASTERS AWARD","FOR THIS GAME!!!"
+Pause 
+ClrHome
+0->dim(|LAD)
+Goto 1
+Stop
+Lbl DC
+750->T
+0->S
+While T>0
+	randInt(1,4)->A
+	If A=1
+	Output(4,8,"<"
+	If A=2
+	Output(4,8,"^"
+	If A=3
+	Output(4,8,">"
+	If A=4
+	Output(4,8,"V"
+	0->K
+	Output(1,1,"   ")
+	While K=0
+		Output(2,1,S)
+		Output(1,1,T)
+		T-1->T
+		getKey->K
+	End
+	If K=45
+	Goto 1
+	If A=1 and K=24
+	S+1->S
+	If A=2 and K=25
+	S+1->S
+	If A=3 and K=26
+	S+1->S
+	If A=4 and K=34
+	S+1->S
+End
+ClrHome
+Disp "FINAL SCORE=",S
+Pause 
+ClrHome
+If S>20
+Disp "GAME COMPLETED!!"
+If S<21
+Disp "GAME FAILED","TRY AGAIN!"
+If S>75
+Disp "","YOUVE EARNED THE","MASTERS AWARD","FOR THIS GAME!!!"
+Pause 
+ClrHome
+Goto 1
+Stop
+Lbl OG
+ClrHome
+Menu(">OBJECTIVE","ST*R HUNT",SH,"INCOMPLETE",ZZ,"<BACK",1)
+Lbl SH
+1->A
+1->B
+0->S
+500->T
+randInt(1,7)->C
+randInt(1,16)->D
+While T>0
+	Output(C,D,"*"
+	Output(A,B,"O"
+	0->K
+	While K=0
+		T-1->T
+		Output(8,1,S)
+		Output(8,5,T)
+		getKey->K
+	End
+	If K=45
+	Goto 1
+	T-1->T
+	Output(A,B," "
+	If K=24
+	B-1->B
+	If K=25
+	A-1->A
+	If K=26
+	B+1->B
+	If K=34
+	A+1->A
+	If A>7
+	7->A
+	If A<1
+	1->A
+	If B>16
+	16->B
+	If B<1
+	1->B
+	If A=C and B=D
+	Then
+		randInt(1,7)->C
+		randInt(1,16)->D
+		S+1->S
+	End
+End
+ClrHome
+Disp "HUNT OVER","","STARS GATHERED:",S
+Pause 
+ClrHome
+If S<10
+Disp "GAME FAILED","TRY AGAIN!"
+If S>9
+Disp "GAME COMPLETED!!"
+If S>21
+Disp "","YOUVE EARNED THE","MASTERS AWARD","FOR THIS GAME!!!"
+Pause 
+ClrHome
+Goto 1
+Stop

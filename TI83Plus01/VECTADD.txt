@@ -1,0 +1,52 @@
+
+ClrHome
+Radian
+Disp "HOW MANY VECTORS","WILL YOU ADD?"
+Input ":",A
+0->X
+0->Y
+0->theta
+For(Z,1,A)
+	ClrHome
+	Disp "FOR VECTOR","ENTER DIRECTION","","CHOOSE FORM","1=thetaH  2=thetaX"
+	Output(1,12,Z)
+	Input ":",B
+	Disp "","ENTER ANGLE DEG."
+	Input ":",theta
+	If B=1
+	Then
+		Disp "","ENTER QUADRANT"
+		Input ":",Q
+		If Q=2
+		180-theta->theta
+		If Q=3
+		180+theta->theta
+		If Q=4
+		360-theta->theta
+	End
+	Disp "ENTER MAGNITUDE"
+	Input ":",M
+	X+Mcos(theta^^o)->X
+	Y+Msin(theta^^o)->Y
+End
+sqrt(X^^2+Y^^2)->M
+If X!=0 and Y!=0
+Then
+	tan^-1(abs(Y/X))->theta
+Else
+	0->theta
+End
+theta*180/pi->theta
+Disp "RESULTANT","","MAGNITUDE=",M,"DIRECTION=",theta,"QUADRANT="
+1->Q
+If X>0
+Then
+	If Y<0
+	4->Q
+Else
+	If Y>0
+	2->Q
+	If Y<0
+	3->Q
+End
+Output(7,11,Q)

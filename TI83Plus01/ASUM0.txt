@@ -1,0 +1,13 @@
+
+ClrHome
+1/2->S
+dim(L1)->O
+For(Z,2,O)
+	If fPart(Z/2)=0
+	Then
+		S/(1/L1(Z))->S
+	Else
+		S*(1/L1(Z))->S
+	End
+	Disp S
+End

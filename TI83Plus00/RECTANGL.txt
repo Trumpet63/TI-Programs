@@ -1,0 +1,101 @@
+
+AxesOff
+0->Xmin
+94->Xmax
+0->Ymin
+62->Ymax
+ClrDraw
+0->A
+0->B
+0->C
+0->D
+0->E
+0->F
+0->G
+0->H
+Lbl 1
+0->I
+While I=0
+	getKey->I
+	Pt-Change(A,B)
+	Pt-On(A-1,B)
+	Pt-On(A+1,B)
+	Pt-On(A,B-1)
+	Pt-On(A,B+1)
+End
+If I=105
+Goto 2
+Pt-Off(A,B)
+Pt-Off(A+1,B)
+Pt-Off(A-1,B)
+Pt-Off(A,B+1)
+Pt-Off(A,B-1)
+If I=24
+A-1->A
+If I=25
+B+1->B
+If I=26
+A+1->A
+If I=34
+B-1->B
+Goto 1
+Stop
+Lbl 2
+ClrDraw
+A->C
+B->D
+A->E
+B->F
+A->G
+B->H
+Lbl 3
+0->I
+While I=0
+	Pt-Change(C,D)
+	Line(A,B,E,F)
+	Line(E,F,C,D)
+	Line(C,D,G,H)
+	Line(G,H,A,B)
+	getKey->I
+End
+If I=105
+Goto 4
+If I=24
+Goto 5
+If I=25
+Goto 6
+If I=26
+Goto 7
+If I=34
+Goto 8
+ClrDraw
+Goto 3
+Stop
+Lbl 5
+C-1->C
+G-1->G
+ClrDraw
+Goto 3
+Stop
+Lbl 6
+D+1->D
+F+1->F
+ClrDraw
+Goto 3
+Stop
+Lbl 7
+G+1->G
+C+1->C
+ClrDraw
+Goto 3
+Stop
+Lbl 8
+D-1->D
+F-1->F
+ClrDraw
+Goto 3
+Stop
+Lbl 4
+ClrHome
+Disp "<  CREATED BY  >","","=JEFFREY SPRENG="
+Stop

@@ -1,0 +1,75 @@
+
+ClrHome
+Disp "","","","","","",""," STREET FIGHTER ","      0-V2     "
+Pause 
+Disp "","","","","","","",""
+ClrHome
+Output(4,6,"O  O"
+Output(5,6,"O  O"
+Output(6,4,"HIM")
+Output(6,9,"YOU")
+25->A
+25->B
+0->C
+0->D
+While A>0 and B>0
+	0->Z
+	Output(3,4,"   ")
+	Output(3,4,B)
+	Output(3,9,"   ")
+	Output(3,9,A)
+	Output(4,7,"  ")
+	Output(5,7,"  ")
+	While Z=0
+		randInt(1,4)->D
+		getKey->Z
+	End
+	If Z=92
+	1->C
+	If Z=93
+	2->C
+	If Z=94
+	randInt(3,4)->C
+	If C=1
+	Output(4,8,"-"
+	If C=2
+	Output(5,8,"-"
+	If C=3
+	Output(4,8,"<"
+	If C=4
+	Output(5,8,"<"
+	If D=1
+	Output(4,7,"-"
+	If D=2
+	Output(5,7,"-"
+	If D=3
+	Output(4,7,">"
+	If D=4
+	Output(5,7,">"
+	If C<3
+	Then
+		B-1->B
+		If C=1 and D=3
+		B+2->B
+		If C=2 and D=4
+		B+2->B
+	End
+	If D<3
+	Then
+		A-1->A
+		If D=1 and C=3
+		A+2->A
+		If D=2 and C=4
+		A+2->A
+	End
+End
+ClrHome
+If A>B
+Disp "YOU WON"
+If B>A
+Disp "YOU LOST"
+If A=B
+Disp "ITS A TIE!"
+Pause 
+ClrHome
+Stop

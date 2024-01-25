@@ -1,0 +1,16 @@
+
+ClrHome
+0->X
+0->Y
+0->Z
+If 1=0
+Disp "A IS DELTA X"
+2*.117/9->A
+For(X,~0.117,0.117,A)
+	Z+1->Z
+	normalcdf(~1|E99,X+A/2,0,.08)-normalcdf(~1|E99,X-A/2,0,.08)->Y
+	Pt-On(X,Y)
+End
+normalcdf(~1|E99,~.117,0,.08)->Y
+Pt-On(.117,Y)
+Pt-On(~.117,Y)

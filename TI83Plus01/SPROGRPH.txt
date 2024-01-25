@@ -1,0 +1,61 @@
+
+Lbl 5
+ClrHome
+Menu("<---FUNGRAPH---\>","ENTER POINTS",EP,"TIPS/HOW TO",TH,"ABOUT",AB,"QUIT",QU)
+Lbl TH
+ClrHome
+Disp "SIMPLY PUT, ALL","IT DOES IS DRAWS","LINES, FROM ONE","DOT TO THE OTHER"
+Pause 
+ClrHome
+Disp "BUT..\. IT IS","ABLE TO CONNECT","EVERY DOT TO","EVERY OTHER ONE","","JUST USE IT","AND YOU'LL SEE."
+Pause 
+ClrHome
+Disp "HAVE FUN MAKING","AWESOME ART!"
+Pause 
+Goto 5
+Stop
+Lbl AB
+ClrHome
+Disp "---=FUNGRAPH=---","  VERSION  2.0  ",""," PAST VERSIONS= ","","1.0,1.1,1.2","BY:"
+Output(8,1," JEFFREY SPRENG ")
+Pause 
+Goto 5
+Stop
+Lbl QU
+Stop
+Lbl EP
+ClrDraw
+ClrHome
+Input "HOW MANY POINTS?",A
+2A->dim(L1)
+ClrHome
+AxesOff
+CoordOn
+GridOff
+0->C
+For(B,1,A,1)
+	C+1->C
+	Input 
+	Pt-On(X,Y)
+	X->L1(C)
+	C+1->C
+	Y->L1(C)
+End
+1->B
+2->C
+3->D
+4->E
+Lbl 1
+If E>2A
+Stop
+While C-1!=D
+	Line(L1(B),L1(C),L1(D),L1(E))
+	B+2->B
+	C+2->C
+End
+1->B
+2->C
+D+2->D
+E+2->E
+Goto 1
+Stop

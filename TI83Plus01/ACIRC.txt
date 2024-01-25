@@ -1,0 +1,16 @@
+
+ClrDraw
+ZDecimal
+AxesOff
+For(A,0,13)
+	Circle(3.2,2,0.4A)
+End
+For(A,0,13)
+	Circle(~3.2,2,0.4A)
+End
+For(A,0,13)
+	Circle(3.2,~2,0.4A)
+End
+For(A,0,13)
+	Circle(~3.2,~2,0.4A)
+End

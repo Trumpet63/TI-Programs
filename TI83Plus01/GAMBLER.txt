@@ -1,0 +1,640 @@
+
+5->dim(|LG)
+Lbl 1
+ClrHome
+Menu("- THE GAMBLER. -","NEW GAME",AA,"LOAD GAME",AB,"ABOUT",AC,"HOW TO PLAY",AD,"QUIT",AE)
+ClrHome
+Lbl AE
+Stop
+Lbl AD
+Disp "YOU GET TO PLAY","A VARIETY OF","GAMES WITH THE","MONEY YOU EARN","AND WIN. SIMPLE."
+Pause 
+Goto 1
+Stop
+Lbl AC
+Disp " -:CREATED BY:- "," JEFFREY SPRENG ","","    STARTED:    ","    02/22/08    ","    FINISHED    ","    11/08/09    "
+Pause 
+Goto 1
+Stop
+Lbl AB
+|LG(1)->A
+Disp "GAME LOADED!"
+Pause 
+ClrHome
+Goto 2
+Stop
+Lbl AA
+100->A
+0->B
+0->C
+0->D
+0->E
+0->|LG(2)
+0->|LG(3)
+0->|LG(4)
+0->|LG(5)
+Disp "ARE YOU READY..\.","","  TO GAMBLE!?   "
+Pause 
+Lbl 2
+0->Z
+0->Y
+0->X
+0->W
+0->V
+0->U
+0->T
+0->S
+0->R
+0->Q
+0->P
+0->O
+0->N
+0->M
+0->L
+0->K
+0->J
+0->I
+0->H
+0->G
+ClrHome
+Menu("-VIVA LAS VEGAS-","GET MONEY",AF,"NUMBER GAMES",AI,"CASINO GAMES",AP,"STATISTICS",AJ,"SAVE GAME",AK,"QUIT",AL)
+ClrHome
+Lbl AJ
+Disp "YOUR CASH=",A,"SCRATCH OFFS=",|LG(2)+B,"LOTTERY TICKETS=",|LG(3)+C
+Pause 
+ClrHome
+Disp "SLOT PLAYS=",|LG(4)+D
+Pause 
+ClrHome
+Goto 2
+Stop
+Lbl AP
+ClrHome
+Menu("<-CASINO GAMES-\>","SLOT MACHINE",AQ,"BACK",AS)
+Lbl AS
+Goto 2
+Stop
+Lbl AL
+Goto 1
+Stop
+Lbl AQ
+0->Q
+(round((|LG(4)/25)+1,0)*.25)->S
+8->T
+4->U
+4000S->V
+Lbl M1
+ClrHome
+Disp "S=SPIN    +USE <","C=CASHOUT +AND >","H=HELP    +TO","I=INFO    +NAVI-","B=BET     +GATE","----------++++++","PRESS ENTER"
+Pause 
+Lbl M2
+ClrHome
+Disp "BET=            ","JACKPOT=        ","    ------- O","    {0*0*0} ^","    -------+^","   - - - - -    ","  {S-C-H-I-B}"
+Lbl M3
+Output(T,U,"^"
+Output(1,6,S)
+0->Z
+While Z=0
+	getKey->Z
+	Output(2,9,round(V,1))
+	V+.5S->V
+	round(V,2)->V
+End
+Output(T,U," "
+If Z=24
+U-2->U
+If Z=26
+U+2->U
+If U>12
+12->U
+If U<4
+4->U
+If Z=105
+Goto M4
+Goto M3
+Lbl M4
+If U=4
+Goto M9
+If U=6
+Goto M8
+If U=8
+Goto M1
+If U=10
+Goto M5
+If U=12
+Goto M6
+Stop
+Lbl M9
+If A+Q<S
+Then
+	Output(6,1,"NOT ENOUGH CASH!"
+	Pause 
+	Goto M2
+End
+A-S->A
+V+S->V
+0->theta
+Output(4,6," * * ")
+Output(3,13," ")
+Output(4,13,"O")
+For(theta,1,40,1)
+End
+Output(4,13," ")
+Output(5,13,"O"
+For(theta,1,30,1)
+End
+Output(5,13,"^")
+Output(4,13,"O")
+For(theta,1,30,1)
+End
+Output(4,13,"^")
+Output(3,13,"O")
+randInt(20,30)->W
+For(K,1,W,1)
+	randInt(1,4)->theta
+	If theta=1
+	Output(4,6,"X*X*X")
+	If theta=2
+	Output(4,6,"Y*Y*Y")
+	If theta=3
+	Output(4,6,"Z*Z*Z")
+	If theta=4
+	Output(4,6,"theta*theta*theta")
+End
+randInt(1,100)->theta
+If theta<43
+1->X
+If theta>42
+2->X
+If theta>73
+3->X
+If theta>99
+4->X
+If X=1
+Output(4,6,"X"
+If X=2
+Output(4,6,"Y"
+If X=3
+Output(4,6,"Z"
+If X=4
+Output(4,6,"theta"
+randInt(10,25)->W
+For(K,1,W,1)
+	randInt(1,4)->theta
+	If theta=1
+	Output(4,8,"X*X")
+	If theta=2
+	Output(4,8,"Y*Y")
+	If theta=3
+	Output(4,8,"Z*Z")
+	If theta=4
+	Output(4,8,"theta*theta")
+End
+randInt(1,100)->theta
+If theta<43
+1->Y
+If theta>42
+2->Y
+If theta>73
+3->Y
+If theta>99
+4->Y
+If Y=1
+Output(4,8,"X"
+If Y=2
+Output(4,8,"Y"
+If Y=3
+Output(4,8,"Z"
+If Y=4
+Output(4,8,"theta"
+randInt(10,35)->W
+For(K,1,W,1)
+	randInt(1,4)->theta
+	If theta=1
+	Output(4,10,"X")
+	If theta=2
+	Output(4,10,"Y")
+	If theta=3
+	Output(4,10,"Z")
+	If theta=4
+	Output(4,10,"theta")
+End
+randInt(1,100)->theta
+If theta<43
+1->Z
+If theta>42
+2->Z
+If theta>73
+3->Z
+If theta>99
+4->Z
+If Z=1
+Output(4,10,"X")
+If Z=2
+Output(4,10,"Y")
+If Z=3
+Output(4,10,"Z")
+If Z=4
+Output(4,10,"theta")
+0->J
+If X=Y or Y=Z
+.29S->J
+If X=1 and Y=1 and Z=1
+3.02S->J
+If X=2 and Y=2 and Z=2
+7.9S->J
+If X=1 and Y=2 and Z=3
+5.92S->J
+If X=3 and Y=3 and Z=3
+11.56S->J
+If X=4 and Y=4 and Z=4
+V->J
+If J>0
+Then
+	8->W
+	For(K,1,W,1)
+		Output(3,1,"*"
+		Output(4,1," "
+		Output(5,1,"*"
+		Output(3,16,"*")
+		Output(4,16," ")
+		Output(5,16,"*")
+		Output(3,1," "
+		Output(4,1,"*"
+		Output(5,1," "
+		Output(3,16," ")
+		Output(4,16,"*")
+		Output(5,16," ")
+	End
+	Output(6,1,"               "
+	Output(6,1,"YOU WON "
+End
+round(J,2)->J
+If J=round(.29S,2)
+Output(6,9,J)
+If J=round(3.02S,2)
+Output(6,9,J)
+If J=round(7.9S,2)
+Output(6,9,J)
+If J=round(5.92S,2)
+Output(6,9,J)
+If J=round(11.56S,2)
+Output(6,9,J)
+If J=V
+Output(6,9,"JACKPOT!")
+Pause 
+V+J->V
+If round(fPart(V)/.1,0)!=fPart(V)/.1
+V+.05->V
+Q+J->Q
+D+1->D
+Goto M2
+Stop
+Lbl M8
+ClrHome
+A+Q->A
+Disp "WINNINGS=",Q,"YOUR CASH=",A
+Pause 
+Goto AP
+Stop
+Lbl M5
+ClrHome
+Disp "<\=*=*PRIZES*=*=>","PAIR =","XXX  =","YYY  =","XYZ  =","ZZZ  =","thetathetatheta  ="
+Output(2,7,round(.29S,2))
+Output(3,7,round(3.02S,2))
+Output(4,7,round(7.9S,2))
+Output(5,7,round(5.92S,2))
+Output(6,7,round(11.56S,2))
+Output(7,7,"JACKPOT")
+Pause 
+Goto M2
+Stop
+Lbl M6
+ClrHome
+((|LG(4)+D)/25)+1->R
+round(R,0)->R
+.25R->R
+Disp "CURRENT BET=",S,"MAXIMUM BET=",R,"CURRENT CASH=",A+Q
+Pause 
+ClrHome
+Disp "CHANGE BET?","1=YES 2=NO",""
+Input ":",Z
+If Z=2
+Goto M2
+ClrHome
+Disp "MAX BET=","","  CURRENT BET   ","","  =","","PRESS UP OR DOWN"
+Output(8,1,"THEN PRESS ENTER")
+Output(1,9,R)
+Lbl M7
+0->Z
+While Z=0
+	Output(5,4,S)
+	getKey->Z
+End
+Output(5,4,"            ")
+If Z=25
+S+.25->S
+If Z=34
+S-.25->S
+If S>R
+R->S
+If S<.25
+.25->S
+If Z=105
+Goto M2
+Goto M7
+Stop
+Lbl AK
+Disp "SAVING"
+A->|LG(1)
+Disp "SAVING."
+|LG(2)+B->|LG(2)
+Disp "SAVING.."
+|LG(3)+C->|LG(3)
+Disp "SAVING..\."
+|LG(4)+D->|LG(4)
+Disp "SAVING..\.."
+|LG(5)+E->|LG(5)
+0->B
+0->C
+0->D
+0->E
+ClrHome
+Disp "GAME SAVED!"
+Pause 
+Goto 2
+Stop
+Lbl AF
+Output(1,1,"( PRESS ENTER. )"
+Output(3,1,"YOUR MONEY=")
+Lbl A1
+Output(4,1,"                ")
+0->Z
+While Z=0
+	Output(4,1,A)
+	getKey->Z
+End
+If Z=45
+Goto 2
+If Z=105
+A+1->A
+Goto A1
+Stop
+Lbl AI
+ClrHome
+Menu("<-NUMBER GAMES-\>","SCRATCH OFFS",AM,"LOTTERY",AN,"BACK",AO)
+ClrHome
+Lbl AN
+ClrHome
+Menu("<--LOTTERIES---\>","3-BALL",L\1,"4-BALL",L\2,"BIG 5",L\3,"SUPER 6",L\4,"BACK",L\5)
+ClrHome
+Lbl L\5
+Goto AI
+Stop
+Lbl L\1
+Disp "    *3-BALL*    ","PICKS= 3","NUMBERS= 1-10","PRIZE= S1000","ONE MATCH= S2.50","CONTINUE?1=Y 2=N"
+Input ":",X
+If X=2
+Goto AN
+3->W
+10->X
+1000->Y
+2.5->Z
+Goto L\6
+Stop
+Lbl L\2
+Disp "    *4-BALL*    ","PICKS= 4","NUMBERS= 1-25","PRIZE= S250000","ONE MATCH= S4.50","CONTINUE?1=Y 2=N"
+Input ":",X
+If X=2
+Goto AN
+4->W
+25->X
+250000->Y
+4.5->Z
+Goto L\6
+Stop
+Lbl L\3
+Disp "    *BIG-5 *    ","PICKS= 5","NUMBERS= 1-30","PRIZE= S10000000","ONE MATCH=S5.00","CONTINUE?1=Y 2=N"
+Input ":",X
+If X=2
+Goto AN
+5->W
+30->X
+10000000->Y
+5->Z
+Goto L\6
+Stop
+Lbl L\4
+Disp "   *SUPER-6 *   ","PICKS= 6","NUMBERS= 1-35","PRIZE=1500000000","ONE MATCH=S6.00","CONTINUE?1=Y 2=N"
+Input ":",X
+If X=2
+Goto AN
+6->W
+35->X
+1500000000->Y
+6->Z
+Lbl L\6
+ClrHome
+Disp "COST= S1.00","YOUR CASH=",A,"","BUY HOW MANY?"
+Input ":",V
+round(V,0)->V
+If V>A
+A->V
+A-V->A
+C+V->C
+Lbl L7
+ClrHome
+Disp "PICK NUMBERS"
+Output(2,13,"1-")
+Output(3,13,"1-")
+Output(4,13,"1-")
+If W>3
+Output(5,13,"1-")
+If W>4
+Output(6,13,"1-")
+If W=6
+Output(7,13,"1-")
+Output(2,15,X)
+Output(3,15,X)
+Output(4,15,X)
+If W>3
+Output(5,15,X)
+If W>4
+Output(6,15,X)
+If W=6
+Output(7,15,X)
+0->G
+0->K
+0->L
+0->M
+1->N
+1->O
+1->P
+1->Q
+1->R
+1->S
+Input ":",N
+If N>X or N<1
+Goto L7
+Input ":",O
+If O>X or O<1
+Goto L7
+Input ":",P
+If P>X or P<1
+Goto L7
+If W>3
+Input ":",Q
+If Q>X or Q<1
+Goto L7
+If W>4
+Input ":",R
+If R>X or R<1
+Goto L7
+If W=6
+Input ":",S
+If S>X or S<1
+Goto L7
+0->T
+While T<V
+	0->U
+	ClrHome
+	Disp "YOURS  --LOTTERY"
+	Output(2,1,N)
+	Output(3,1,O)
+	Output(4,1,P)
+	If W>3
+	Output(5,1,Q)
+	If W>4
+	Output(6,1,R)
+	If W=6
+	Output(7,1,S)
+	randInt(1,X)->H
+	randInt(1,X)->I
+	randInt(1,X)->J
+	If W>3
+	randInt(1,X)->K
+	If W>4
+	randInt(1,X)->L
+	If W=6
+	randInt(1,X)->M
+	Output(2,15,H)
+	Output(3,15,I)
+	Output(4,15,J)
+	If W>3
+	Output(5,15,K)
+	If W>4
+	Output(6,15,L)
+	If W=6
+	Output(7,15,M)
+	If H=N
+	U+Z->U
+	If I=O
+	U+Z->U
+	If J=P
+	U+Z->U
+	If K=Q
+	U+Z->U
+	If L=R
+	U+Z->U
+	If M=S
+	U+Z->U
+	If U=(ZW)
+	Y->U
+	G+U->G
+	T+1->T
+	Pause 
+End
+ClrHome
+A+G->A
+Disp "WINNINGS=",G,"","YOUR CASH=",A
+Pause 
+Goto AN
+Stop
+Lbl AO
+Goto 2
+Stop
+Lbl AM
+ClrHome
+Menu("<-SCRATCH OFFS-\>","POT O' GOLD",S1,"ROCKIN' ACES",S2,"MONEY MOLES",S3,"SKY CASH",S4,"SUPER 7'S",S5,"LUCKY STREET",S6,"BACK",S7)
+ClrHome
+Lbl S7
+Goto AI
+Stop
+Lbl S1
+2->Y
+16->X
+1000->W
+800->V
+Goto SA
+Stop
+Lbl S2
+8->Y
+24->X
+5000->W
+2500->V
+Goto SA
+Stop
+Lbl S3
+4->Y
+20->X
+2000->W
+1000->V
+Goto SA
+Stop
+Lbl S4
+10->Y
+20->X
+10000->W
+5000->V
+Goto SA
+Stop
+Lbl S5
+4->Y
+35->X
+7770->W
+3777->V
+Goto SA
+Stop
+Lbl S6
+4->Y
+40->X
+1200->W
+600->V
+Lbl SA
+Disp "COST= S1.00 EACH","YOUR CASH=",A,"","BUY HOW MANY:?  "
+Input Z
+round(Z,0)->Z
+If Z>A
+A->Z
+A-Z->A
+B+Z->B
+0->U
+0->K
+ClrHome
+While Z>U
+	U+1->U
+	If randInt(1,Y)=round(Y/2)
+	Then
+		randInt(1,3)->L
+		K+L->K
+		Disp "----------------","SMALL PRIZE"
+	End
+	If randInt(1,X)=round(X/2)
+	Then
+		randInt(3,10)->L
+		K+L->K
+		Disp "----------------","MEDIUM PRIZE"
+	End
+	If randInt(1,V)=round(V/2)
+	Then
+		K+W->K
+		Disp "****************","GRAND PRIZE"
+	End
+End
+ClrHome
+A+K->A
+Disp "YOUR WINNINGS=",K,"YOUR CASH=",A
+Pause 
+ClrHome
+Goto AI
+Stop

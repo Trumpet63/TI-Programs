@@ -1,0 +1,87 @@
+:
+ClrHome
+0->A
+0->B
+0->C
+0->D
+0->E
+Disp "ROCKPAPERSISSORS"
+Pause 
+Disp "","","","","","",""
+ClrHome:Lbl 1
+Menu("==1-2-3 SHOOT!\==","ONE PLAYER",OP,"TWO PLAYER",TP,"QUIT",QT)
+Lbl OP
+Menu("[      1P      ]","ROCK",RK,"PAPER",PR,"SISSORS",SR,"<<BACK",BK)
+Lbl RK
+1->A
+Goto 2
+Lbl PR
+2->A
+Goto 2
+Lbl SR
+3->A
+Goto 2
+Lbl BK
+Goto 1
+Stop
+Lbl 2
+randInt(1,3)->C:Lbl 3
+ClrHome
+Disp "    PLAYER1:    "
+If A=1
+Disp "      ROCK      "
+If A=2
+Disp "     PAPER      "
+If A=3
+Disp "    SISSORS     "
+Disp ""
+Pause 
+Disp "    PLAYER2:    "
+If C=1
+Disp "      ROCK      "
+If C=2
+Disp "     PAPER      "
+If C=3
+Disp "    SISSORS     "
+Pause 
+ClrHome
+If A=C
+Disp "   ITS A TIE!   "
+If A=1 and C=2 or A=2 and C=3 or A=3 and C=1
+Disp " PLAYER 2 WINS! "
+If A=1 and C=3 or A=2 and C=1 or A=3 and C=2
+Disp " PLAYER 1 WINS! "
+Pause 
+ClrHome
+Goto 1
+Stop
+Lbl BK
+Goto 1
+Stop
+Lbl TP
+Menu("[      P1      ]","ROCK",R1,"PAPER",P1,"SISSORS",S1,"<<BACK",BK)
+Lbl R1
+1->A
+Goto 4
+Lbl P1
+2->A
+Goto 4
+Lbl S1
+3->A
+Goto 4
+Stop
+Lbl 4
+Menu("[      P2      ]","ROCK",R2,"PAPER",P2,"SISSORS",S2,"<<BACK",TP)
+Lbl R2
+1->C
+Goto 3
+Lbl P2
+2->C
+Goto 3
+Lbl S2
+3->C
+Goto 3
+Stop
+Lbl QT
+ClrHome
+Stop

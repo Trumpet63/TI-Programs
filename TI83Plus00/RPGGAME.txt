@@ -1,0 +1,36 @@
+
+0->B:0->D
+ClrDraw:AxesOff:FnOff 
+Lbl 1
+Text(7,26,"BATTLE QUEST"
+Text(21,30,"NEW GAME")
+Text(28,30,"LOAD GAME")
+Text(35,30,"CHEATS "):Text(42,30,"INSTRUCTIONS"):Text(49,30,"QUIT")
+Text(B+21,20,"*")
+Lbl 6:0->A
+While A=0
+	getKey->A
+	If A=105:Goto 2
+End
+If A=25
+B-7->B
+If A=34
+B+7->B
+Text(B+14,20,"     ")
+Text(B+21,20,"     ")
+Text(B+28,20,"     ")
+0->A
+Goto 1
+Lbl 2
+If B=0
+Goto 3
+If B=7
+Goto 4
+If B=14
+Goto 5
+If B=21
+Goto 6
+If B=28
+Goto 7
+Goto 1
+Lbl 3

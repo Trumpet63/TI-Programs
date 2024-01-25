@@ -1,0 +1,38 @@
+
+ClrHome
+Menu("  BANK INTEREST ","FUTURE VALUE",AA,"NO. OF YEARS",AB,"INT. PERCENT",AC,"QUIT",ZZ)
+Lbl ZZ
+Stop
+Lbl AA
+Input "PRINCIPAL=?     ",P
+Input "INT. PERCENT=?  ",R
+R/100->R
+Input "COMPOUNDED=?    ",N
+Input "NO. OF YEARS=?  ",T
+ClrHome
+P(1+(R/N))^(NT)->A
+A*100->A
+iPart(A)->A
+A/100->A
+A-P->I
+Disp "FUTURE VALUE=",A
+Disp "INTEREST EARNED=",I
+Stop
+Lbl AB
+Input "PRINCIPAL=?     ",P
+Input "FUTURE VALUE=?  ",A
+Input "INT. PERCENT=?  ",R
+R/100->R
+Input "COMPOUNDED=?    ",N
+ln(A/P)/(Nln(1+R/N))->T
+ClrHome
+Disp "NO. OF YEARS=",round(T,2
+Stop
+Lbl AC
+Input "PRINCIPAL=?     ",P
+Input "FUTURE VALUE=?  ",A
+Input "COMPOUNDED=?    ",N
+Input "NO. OF YEARS=?  ",T
+N(A/P)^(1/(NT))-N->R
+ClrHome
+Disp "INT. PERCENT=",round(100R,2)

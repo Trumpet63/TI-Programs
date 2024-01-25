@@ -1,0 +1,23 @@
+
+ClrHome
+~1->Xmin
+1->Xmax
+~1->Ymin
+1->Ymax
+ZSquare
+AxesOff
+0->A
+0->B
+.38->C
+.25->D
+1->E
+0->F
+For(Z,1,720)
+	cos(A)->X
+	sin(B)->Y
+	Line(X,Y,E,F)
+	X->E
+	Y->F
+	A+C->A
+	B+D->B
+End

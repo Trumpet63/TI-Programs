@@ -1,0 +1,73 @@
+
+ClrHome
+Disp "","","","","","","","  MAGIC 8 BALL  "
+Pause 
+Disp "","","","","","",""
+ClrHome
+Disp "  TYPE IN YOUR  ","QUESTION(YES/NO)"
+Pause 
+ClrHome
+Input Str1
+randInt(1,30)->A
+Disp ""
+If A=1
+Disp "OF COURSE"
+If A=2
+Disp "OF COURSE NOT"
+If A=3
+Disp "PROBABLY"
+If A=4
+Disp "PROBABLY NOT"
+If A=5
+Disp "DEFINITELY"
+If A=6
+Disp "DEFINITELY NOT"
+If A=7
+Disp "NOT HAPPENING!"
+If A=8
+Disp "OH YES!"
+If A=9
+Disp "YES"
+If A=10
+Disp "NO"
+If A=11
+Disp "I'M NOT SURE"
+If A=12
+Disp "ASK AGAIN LATER"
+If A=13
+Disp "LEAVE ME ALONE"
+If A=14
+Disp "NOT IN THE CARDS"
+If A=15
+Disp "SURELY"
+If A=16
+Disp "SURELY NOT"
+If A=17
+Disp "YEP"
+If A=18
+Disp "NOPE"
+If A=19
+Disp "INDUBIDABLY"
+If A=20
+Disp "NEVER"
+If A=21
+Disp "ALWAYS"
+If A=22
+Disp "MAYBE"
+If A=23
+Disp "MAYBE NOT"
+If A=24
+Disp "THAT'S SILLY!"
+If A=25
+Disp "PARDON ME?"
+If A=26
+Disp "WHAT DO YOU MEAN"
+If A=27
+Disp "THE STARS SAY NO"
+If A=28
+Disp "MMM HMM!"
+If A=29
+Disp "YES, YES, YES!!"
+If A=30
+Disp "YES, IT'S TRUE!"
+Stop

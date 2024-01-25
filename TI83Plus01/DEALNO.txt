@@ -1,0 +1,284 @@
+
+ClrHome
+Menu("DEAL OR NO DEAL!","PLAY",PL,"QUIT",QU)
+Lbl QU
+Stop
+Lbl PL
+Disp "SCRAMBLING CASE","VALUES..\."
+0->dim(|LDD)
+22->dim(|LDD)
+0->dim(|LD2)
+22->dim(|LD2)
+.01->|LD2(1)
+1->|LD2(2)
+5->|LD2(3)
+10->|LD2(4)
+25->|LD2(5)
+50->|LD2(6)
+100->|LD2(7)
+200->|LD2(8)
+300->|LD2(9)
+400->|LD2(10)
+500->|LD2(11)
+1000->|LD2(12)
+2500->|LD2(13)
+5000->|LD2(14)
+7500->|LD2(15)
+10000->|LD2(16)
+25000->|LD2(17)
+50000->|LD2(18)
+75000->|LD2(19)
+100000->|LD2(20)
+250000->|LD2(21)
+500000->|LD2(22)
+1->A
+While A<23
+	Output(2,10,A)
+	randInt(1,22)->B
+	If |LDD(B)=0
+	Then
+		If A=1
+		0.01->|LDD(B)
+		If A=2
+		1->|LDD(B)
+		If A=3
+		5->|LDD(B)
+		If A=4
+		10->|LDD(B)
+		If A=5
+		25->|LDD(B)
+		If A=6
+		50->|LDD(B)
+		If A=7
+		100->|LDD(B)
+		If A=8
+		200->|LDD(B)
+		If A=9
+		300->|LDD(B)
+		If A=10
+		400->|LDD(B)
+		If A=11
+		500->|LDD(B)
+		If A=12
+		1000->|LDD(B)
+		If A=13
+		2500->|LDD(B)
+		If A=14
+		5000->|LDD(B)
+		If A=15
+		7500->|LDD(B)
+		If A=16
+		10000->|LDD(B)
+		If A=17
+		25000->|LDD(B)
+		If A=18
+		50000->|LDD(B)
+		If A=19
+		75000->|LDD(B)
+		If A=20
+		100000->|LDD(B)
+		If A=21
+		250000->|LDD(B)
+		If A=22
+		500000->|LDD(B)
+		A+1->A
+	End
+End
+0->A
+0->B
+ClrHome
+Disp "WELCOME TO DEAL","OR NO DEAL BY:","JEFFREY SPRENG","    9/20/08     "
+Pause 
+ClrHome
+randInt(1,22)->A
+Disp "LETS GET STARTED","YOUR STARTING","CASE IS CASE:",A
+Pause 
+ClrHome
+Disp "1:KEEP YOUR CASE","2:PICK YOUR OWN",""
+Input ":?",B
+ClrHome
+If B=2
+Then
+	Disp "WHICH CASE DO","YOU WANT? (1-22)",""
+	Input ":?",A
+	ClrHome
+	If A>22
+	22->A
+End
+1->F
+5->P
+Lbl 1
+ClrHome
+Output(1,1,|LD2(1))
+Output(2,1,|LD2(2))
+Output(3,1,|LD2(3))
+Output(4,1,|LD2(4))
+Output(5,1,|LD2(5))
+Output(6,1,|LD2(6))
+Output(7,1,|LD2(7))
+Output(8,1,|LD2(8))
+Output(1,5,|LD2(9))
+Output(2,5,|LD2(10))
+Output(3,5,|LD2(11))
+Output(4,5,|LD2(12))
+Output(5,5,|LD2(13))
+Output(6,5,|LD2(14))
+Output(7,5,|LD2(15))
+Output(8,5,|LD2(16))
+Output(1,10,|LD2(22))
+Output(2,10,|LD2(21))
+Output(3,10,|LD2(20))
+Output(4,11,|LD2(19))
+Output(5,11,|LD2(18))
+Output(6,11,|LD2(17))
+Pause 
+ClrHome
+If P=0
+Then
+	F+1->F
+	If F=2
+	5->P
+	If F=3
+	4->P
+	If F=4
+	2->P
+	If F=5
+	2->P
+	If F=6
+	1->P
+	If F=7
+	1->P
+	Goto 2
+End
+Lbl 3
+If F=8
+Goto 4
+1->B
+1->C
+1->D
+0->E
+While B<23
+	If |LDD(B)!=0
+	Then
+		If B!=A
+		Output(C,D,B)
+		C+1->C
+		If C>8
+		D+3->D
+		If C>8
+		1->C
+	End
+	B+1->B
+End
+Output(1,10,"PICK A")
+Output(2,11,"CASE")
+Output(4,10,"PICKS=")
+Output(4,16,P)
+Pause 
+Lbl CC
+ClrHome
+Input "CASE NUMBER:",E
+If E=A
+Goto CC
+Disp "","THAT CASE HAS..\."
+Disp |LDD(E)
+Disp "IN IT!"
+If |LDD(E)=.01
+0->|LD2(1)
+If |LDD(E)=1
+0->|LD2(2)
+If |LDD(E)=5
+0->|LD2(3)
+If |LDD(E)=10
+0->|LD2(4)
+If |LDD(E)=25
+0->|LD2(5)
+If |LDD(E)=50
+0->|LD2(6)
+If |LDD(E)=100
+0->|LD2(7)
+If |LDD(E)=200
+0->|LD2(8)
+If |LDD(E)=300
+0->|LD2(9)
+If |LDD(E)=400
+0->|LD2(10)
+If |LDD(E)=500
+0->|LD2(11)
+If |LDD(E)=1000
+0->|LD2(12)
+If |LDD(E)=2500
+0->|LD2(13)
+If |LDD(E)=5000
+0->|LD2(14)
+If |LDD(E)=7500
+0->|LD2(15)
+If |LDD(E)=10000
+0->|LD2(16)
+If |LDD(E)=25000
+0->|LD2(17)
+If |LDD(E)=50000
+0->|LD2(18)
+If |LDD(E)=75000
+0->|LD2(19)
+If |LDD(E)=100000
+0->|LD2(20)
+If |LDD(E)=250000
+0->|LD2(21)
+If |LDD(E)=500000
+0->|LD2(22)
+0->|LDD(E)
+P-1->P
+Pause 
+Goto 1
+Stop
+Lbl 2
+ClrHome
+Disp "THE PHONE RINGS."
+Pause 
+ClrHome
+Disp "BANKER'S OFFER:"
+sum(|LDD)->O
+If F=2
+O/17->O
+If F=3
+O/12->O
+If F=4
+O/8->O
+If F=5
+O/6->O
+If F=6
+O/4->O
+If F=7
+O/3->O
+If F=8
+O/2->O
+If F!=8
+O/2->O
+round(O,0)->O
+O*(randInt(1000,1100)/1000)->O
+O/50->O
+round(O,0)->O
+O*50->O
+Disp O
+Pause 
+ClrHome
+Menu("DEAL OR NO DEAL?","DEAL",4,"NO DEAL",3)
+Stop
+Lbl 4
+ClrHome
+|LDD(A)->B
+If F=8
+Then
+	Disp "REMAINING CASE="
+	0->|LDD(A)
+	max(|LDD)->A
+	Disp A,""
+End
+Disp "YOUR CASE="
+Disp B,""
+Disp "LAST OFFER="
+Output(8,10,O)
+Pause 
+ClrHome
+Stop

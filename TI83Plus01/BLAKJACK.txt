@@ -1,0 +1,400 @@
+
+ClrHome
+Disp "  RAM WARNING:  ","THIS GAME","REQUIRES AN","ADDITIONAL 1000","BYTES TO SIM.","A DECK. PRESS","ENTER TO CONT."
+Pause 
+52->dim(|LTMP)
+52->dim(|LTM1)
+For(A,1,13,1)
+	A->|LTMP(4A-3)
+	A->|LTMP(4A-2)
+	A->|LTMP(4A-1)
+	A->|LTMP(4A)
+End
+ClrHome
+Disp "USE FUNDS FROM","GAMBLER?","","   1=YES 2=NO   "
+Input ":?",V
+ClrHome
+6->dim(|LBLJ)
+2->dim(|LB1)
+2->dim(|LB2)
+If V=2
+|LBLJ(1)->S
+If V=1
+|LG(1)->S
+If S<=0
+100->S
+Lbl 1
+ClrHome
+Disp "SHUFFLING..\."
+Fill(0,|LTM1)
+1->A
+0->C
+Output(8,5,"PERCENT")
+While A<53
+	C+1->C
+	randInt(1,52)->B
+	If |LTM1(B)=0
+	Then
+		|LTMP(A)->|LTM1(B)
+		A+1->A
+	End
+	If C>234
+	234->C
+	Output(8,1,round(C/2.36,0)
+End
+Output(8,1,100
+For(Z,1,200,1)
+End
+0->A
+1->C
+Lbl 2
+2->dim(|LB1)
+2->dim(|LB2)
+Fill(0,|LB1)
+Fill(0,|LB2)
+ClrHome
+Disp "","",""
+Output(1,1,"DEALER")
+Output(2,7,"X  X")
+Output(6,1,"CASH=")
+Output(6,6,S)
+Disp "PLACE YOUR BET"
+Input ":?",R
+round(R,2)->R
+If R>S
+S->R
+S-R->S
+Output(6,6,"           ")
+Output(6,1,"CASH=")
+Output(6,6,S)
+For(Z,1,300)
+End
+Output(6,1,"                ")
+Output(5,1,"                ")
+Output(4,1,"                ")
+Output(8,1,"P"
+Output(8,3,"BET:")
+Output(8,7,R)
+If C>48
+Then
+	1->C
+	1->A
+End
+|LTM1(C)->|LB1(1)
+|LTM1(C+1)->|LB2(1)
+|LTM1(C+2)->|LB1(2)
+|LTM1(C+3)->|LB2(2)
+C+4->C
+1->B
+|LB2(1)->L
+If L>1 and L<10
+Output(2,7,L)
+If L=1
+Output(2,7,"A"
+If L=10
+Then
+	Output(2,7,"10^(")
+	Output(2,8,"  ")
+End
+If L=11
+Output(2,7,"J"
+If L=12
+Output(2,7,"Q"
+If L=13
+Output(2,7,"K"
+Lbl 3
+0->K
+0->L
+If B=0
+Then
+	Output(2,1,"                ")
+	dim(|LB2)->G
+	2->H
+	0->U
+End
+If B=1
+Then
+	Output(6,1,"                ")
+	Output(5,7,"         ")
+	dim(|LB1)->G
+	6->H
+	0->T
+End
+0->D
+While D<G
+	D+1->D
+	8-G+2(D-1)->E
+	If B=1
+	|LB1(D)->F
+	If B=0
+	|LB2(D)->F
+	If F>1 and F<10
+	Then
+		Output(H,E,F)
+		If B=0
+		U+F->U
+		If B=1
+		T+F->T
+	End
+	If F=1
+	Then
+		Output(H,E,"A"
+		1->L
+		If B=0
+		U+1->U
+		If B=1
+		T+1->T
+	End
+	If F=10
+	Then
+		Output(H,E,"10^(")
+		Output(H,E+1,"  ")
+		If B=0
+		U+10->U
+		If B=1
+		T+10->T
+	End
+	If F=11
+	Then
+		Output(H,E,"J"
+		If B=0
+		U+10->U
+		If B=1
+		T+10->T
+	End
+	If F=12
+	Then
+		Output(H,E,"Q"
+		If B=0
+		U+10->U
+		If B=1
+		T+10->T
+	End
+	If F=13
+	Then
+		Output(H,E,"K"
+		If B=0
+		U+10->U
+		If B=1
+		T+10->T
+	End
+End
+If H=2
+3->H
+If H=6
+5->H
+Output(H,8,"         ")
+Output(H,1,"TOTAL:")
+If B=0
+Then
+	Output(H,8,U)
+	If L=1 and U+10<22
+	Then
+		Output(H,11,"OR")
+		Output(H,14,U+10)
+	End
+End
+If B=1
+Then
+	Output(H,8,T)
+	If L=1 and T+10<22
+	Then
+		Output(H,11,"OR")
+		Output(H,14,T+10)
+	End
+End
+If B=0
+Then
+	For(Z,1,500)
+	End
+	If U>21
+	Then
+		6->K
+		Goto 4
+	End
+	If G=7
+	Then
+		4->K
+		Goto 4
+	End
+	If L=0 and U<17 or L=1 and U+10<17 or L=1 and U+10>21 and U<17
+	Then
+		G+1->G
+		G->dim(|LB2)
+		|LTM1(C)->|LB2(G)
+		C+1->C
+		If C>52
+		Then
+			1->C
+			1->A
+		End
+		Goto 3
+	End
+End
+If B=1
+Then
+	If L=1 and T=11
+	Then
+		2->K
+		Goto 4
+	End
+	If T>21
+	Then
+		1->K
+		Goto 4
+	End
+	If G=7
+	Then
+		5->K
+		Goto 4
+	End
+	Output(4,1,"HIT(1) STAND(2)"
+	0->Z
+	While Z=0
+		getKey->Z
+	End
+	If Z=92
+	Then
+		G+1->G
+		G->dim(|LB1)
+		|LTM1(C)->|LB1(G)
+		C+1->C
+		If C>52
+		Then
+			1->C
+			1->A
+		End
+		Goto 3
+	End
+End
+Output(4,1,"               ")
+If B=0
+Then
+	Output(4,1,"DEALER STANDS..\.")
+	Pause 
+	3->K
+	Goto 4
+End
+If B=1
+0->B
+Goto 3
+Stop
+Lbl 4
+Output(3,1,"                ")
+Output(4,1,"                ")
+Output(5,1,"                ")
+1->I
+If K=1
+Then
+	Output(4,1,"PLAYER BUSTS")
+	8->K
+End
+If K=2
+Then
+	Output(4,1,"PLAYER WINS!")
+	If dim(|LB1)=2
+	Then
+		Output(4,1,"BLACKJACK!!
+		1.5->I
+	End
+	7->K
+End
+If K=3
+Then
+	SortA(|LB1)
+	If |LB1(1)=1
+	Then
+		If T+10<22
+		T+10->T
+	End
+	SortA(|LB2)
+	If |LB2(1)=1
+	Then
+		If U+10<22
+		U+10->U
+	End
+	If T>U
+	Then
+		Output(4,1,"PLAYER WINS!")
+		7->K
+	End
+	If T<U
+	Then
+		Output(4,1,"DEALER WINS")
+		8->K
+	End
+	If T=U
+	Then
+		Output(4,1,"PLAYER PUSHES")
+		9->K
+	End
+End
+If K=4
+Then
+	Output(4,1,"DEALER WINS-")
+	Output(5,1,"SEVEN CARDS")
+	8->K
+End
+If K=5
+Then
+	Output(4,1,"PLAYER WINS-")
+	Output(5,1,"SEVEN CARDS")
+	7->K
+	2->I
+End
+If K=6
+Then
+	Output(4,1,"DEALER BUSTS!")
+	7->K
+End
+Pause 
+Output(2,1,"                ")
+Output(3,1,"                ")
+Output(4,1,"                ")
+Output(5,1,"                ")
+Output(6,1,"                ")
+If K=7
+Then
+	S+R+IR->S
+	Output(3,1,"WON:")
+	Output(3,6,"S"
+	Output(3,7,IR)
+	|LBLJ(5)+IR->|LBLJ(5)
+	|LBLJ(2)+1->|LBLJ(2)
+End
+If K=8
+Then
+	Output(3,1,"DEALER WON")
+	|LBLJ(3)+1->|LBLJ(3)
+	|LBLJ(5)-R->|LBLJ(5)
+End
+If K=9
+Then
+	Output(3,1,"    YOU PUSH    ")
+	|LBLJ(4)+1->|LBLJ(4)
+	S+R->S
+End
+If V=1
+S->|LG(1)
+If V=2
+S->|LBLJ(1)
+Output(4,1,"TO DATE WINNINGS")
+Output(5,1,"S"
+Output(5,2,|LBLJ(5))
+Output(6,1,"CONTINUE PLAYING")
+Output(7,1,"  1=YES   2=NO  ")
+Output(8,3,"              ")
+Output(8,3,"CASH="
+Output(8,9,S)
+0->Z
+While Z=0
+	getKey->Z
+End
+If Z=92
+Then
+	If A=1
+	Goto 1
+	Goto 2
+End
+If Z=93
+Stop

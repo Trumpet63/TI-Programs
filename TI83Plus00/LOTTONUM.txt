@@ -1,0 +1,17 @@
+
+ClrHome
+Disp "LOTTERY NUMBERS "
+Input "ARE 1-",A
+ClrHome
+Input "HOW MANY NUMBERS",B
+ClrHome
+0->C
+0->D
+1->E
+While B!=C
+	randInt(1,A)->F
+	Output(E,1,F)
+	E+1->E
+	C+1->C
+End
+Stop

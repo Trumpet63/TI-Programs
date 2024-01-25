@@ -1,0 +1,11 @@
+
+ClrHome
+0->A
+For(Z,1,9^99)
+	Output(1,1,"     ")
+	Output(3,1,"             ")
+	Output(1,1,A)
+	Output(3,1,A/Z)
+	Output(4,1,Z)
+	A+randInt(~1,1)->A
+End

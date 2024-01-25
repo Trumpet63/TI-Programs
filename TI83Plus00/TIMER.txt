@@ -1,0 +1,65 @@
+
+ClrHome
+0->A
+0->B
+0->C
+0->D
+0->E
+0->Z
+Output(3,3,A)
+Output(3,6,"DAYS")
+Output(4,3,B)
+Output(4,6,"HRS.")
+Output(5,3,C)
+Output(5,6,"MIN.")
+Output(6,3,D)
+Output(6,6,"SEC.")
+Lbl 1
+For(E,1,10,1)
+	getKey->Z
+	Output(3,3,A)
+	Output(3,6,"DAYS")
+	Output(4,3,B)
+	Output(4,6,"HRS.")
+	Output(5,3,C)
+	Output(5,6,"MIN.")
+	Output(6,3,D)
+	Output(6,6,"SEC.")
+	If Z=105
+	Goto 5
+End
+D+1->D
+0->E
+0->Z
+If D=60
+Goto 2
+If C=60
+Goto 3
+If B=24
+Goto 4
+Goto 1
+Stop
+Lbl 2
+C+1->C
+0->D
+ClrHome
+Goto 1
+Lbl 3
+B+1->B
+0->C
+0->D
+ClrHome
+Goto 1
+Stop
+Lbl 4
+A+1->A
+0->B
+0->C
+0->D
+ClrHome
+Goto 1
+Stop
+Lbl 5
+Pause 
+Goto 1
+Stop

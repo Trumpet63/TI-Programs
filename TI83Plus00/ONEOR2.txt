@@ -1,0 +1,44 @@
+
+ClrHome
+For(Z,1,50)
+	Output(randInt(1,8),randInt(1,16),randInt(1,2))
+	Disp ""
+End
+Disp "","","","","","",""
+ClrHome
+Disp "*-\>\=^1^OR^2^=<-*"
+Pause 
+ClrHome
+Disp "1=:P 2=:/ 3=:)","4-8=:O 9=XO","YOU WILL HAVE TO","GUESS BETWEEN","1 AND THIS",""
+Input "DIFFICULTY:?    ",D
+ClrHome
+Disp "HOW LONG WILL"
+Input "YOU SUFFER?     ",A
+ClrHome
+0->W
+0->L
+A->T
+For(Z,1,A)
+	randInt(1,D)->B
+	Output(1,11,T)
+	T-1->T
+	Input ":? ",C
+	If C=B
+	W+1->W
+	If C=B
+	Disp "YES"
+	If C!=B
+	L+1->L
+	If C!=B
+	Disp "NO"
+End
+ClrHome
+Disp "CORRECT GUESSES:",W,"","WRONG GUESSES:",L,"AKA:"
+W/A->P
+P*100->P
+round(P,5)->P
+Output(8,1,P)
+Output(8,10,"PERCENT")
+Pause 
+ClrHome
+Stop

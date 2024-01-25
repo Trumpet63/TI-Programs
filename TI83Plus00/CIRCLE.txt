@@ -1,0 +1,71 @@
+
+~1->Xmin
+1->Xmax
+~1->Ymin
+1->Ymax
+AxesOff
+ClrDraw
+ClrHome
+Lbl 1
+Menu("=MATH PICTURES!\=","GENERATE PIC",AA,"HOW IT WORKS",AB,"ABOUT",AC,"QUIT",AD)
+Lbl AD
+ClrHome
+Stop
+Lbl AB
+ClrHome
+Disp "USING SINE AND","COSINE, THIS","PROGRAM LETS YOU","STEER A LINE OF","DOTS"
+Pause 
+ClrHome
+Disp "BUT..\. ALL THAT","YOU HAVE TO DO","IS DEFINE THE","RATE OF Y-CHANGE","DONT WORRY, ITS","NOT THAT HARD"
+Pause 
+ClrHome
+Disp "START WITH THE","DEFAULT STEERING","SENSITIVITY,","THEN TAP THE UP","AND DOWN ARROWS"
+Pause 
+ClrHome
+Disp "IF IT GETS A","LITTLE DOTTY","THEN YOU NEED TO","LEVEL OUT THE","Y-CHANGE, SO","TRY TO GET IT TO","SLOW DOWN"
+Pause 
+ClrHome
+Disp "ENTER STOPS THE","PRGM, CLEAR","CLEARS THE","SCREEN, MODE","RESETS THE","Y-CHANGE, (CAN","BE VERY HELPFUL)"
+Output(8,1,"HAVE FUN!")
+Pause 
+ClrHome
+Goto 1
+Stop
+Lbl AC
+ClrHome
+Disp "<  CREATED BY  >","=JEFFREY SPRENG=","","< FINISHED ON: >","    7/27/07     "
+Pause 
+ClrHome
+Goto 1
+Stop
+Lbl AA
+ClrHome
+Disp "() =X SPEED= () ","   DEFAULT=.01  "
+Input ":",Y
+ClrHome
+Disp "() =STEERING= ()","  DEFAULT=.01   "
+Input ":",Z
+0->A
+0->B
+0->C
+0->D
+Y->E
+0->F
+0->G
+While G!=105
+	Pt-On(A,B)
+	cos(C)->A
+	sin(D)->B
+	C+E->C
+	D+F->D
+	getKey->G
+	If G=25
+	F+Z->F
+	If G=34
+	F-Z->F
+	If G=45
+	ClrDraw
+	If G=22
+	Y->F
+End
+Stop

@@ -1,0 +1,43 @@
+
+
+ClrHome
+Disp "PRESS THE NUMBER","THATS DISPLAYED"
+For(Z,1,400)
+End
+Disp "READY?"
+For(Z,1,475)
+End
+ClrHome
+0->B
+0->C
+0->D
+pi->E
+Lbl 1
+If D=14
+Goto 3
+D+1->D
+0->A
+iPart(E)->B
+Lbl 2
+0->K
+Output(4,8,B)
+While K=0
+	A+1->A
+	getKey->K
+End
+ClrHome
+If K=45
+Stop
+If K=72 and B=7 or K=73 and B=8 or K=74 and B=9 or K=82 and B=4 or K=83 and B=5 or K=84 and B=6 or K=92 and B=1 or K=93 and B=2 or K=94 and B=3 or K=102 and B=0
+Then
+	C+A->C
+	E-iPart(E)->E
+	10E->E
+Else
+	A+25->A
+	Goto 2
+End
+Goto 1
+Lbl 3
+round(1000000/(C/14),0)->S
+Disp "SCORE=",S

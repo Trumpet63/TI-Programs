@@ -1,0 +1,19 @@
+
+ClrHome
+0->B
+1->A
+Disp 1
+2->D
+2->E
+While A<10^99
+	B+A->C
+	If C/100>=1
+	C-100->C
+	Disp C
+	E+1->E
+	D+C->D
+	Output(7,1,round(D/E,2))
+	
+	A->B
+	C->A
+End

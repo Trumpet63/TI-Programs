@@ -1,0 +1,15 @@
+
+ClrHome
+Input "F(X)=",Str1
+Str1->{Y1}
+Input "GUESS=",C
+ClrHome
+Disp "APPROXIMATION"
+For(A,1,99)
+	Output(1,15,A)
+	C->X
+	C-{Y1}/nDeriv({Y1},X,C)->C
+	Output(2,1,"                ")
+	Output(2,1,C)
+	Pause 
+End

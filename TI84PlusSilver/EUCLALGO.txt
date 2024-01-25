@@ -1,0 +1,12 @@
+
+ClrHome
+Prompt A
+Prompt B
+Lbl A
+remainder(A,B)->C
+Disp C
+B->A
+C->B
+Pause 
+If C>1
+Goto A

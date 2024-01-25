@@ -1,0 +1,34 @@
+
+
+ClrHome
+Prompt N
+If fPart(N/2)=0
+N-1->N
+ClrHome
+3->A
+1->B
+Lbl 1
+While N/A>=sqrt(N)
+	Output(1,1,round(A/sqrt(N),2)
+	Output(1,5,N)
+	getKey->K
+	If fPart(N/A)=0 and N!=A
+	Then
+		N+2->N
+		1->A
+	End
+	A+2->A
+End
+B+1->B
+
+Goto 2
+B->dim(L1)
+N->L1(B)
+Lbl 2
+Pause 
+Output(3,1,N)
+N+2->N
+3->A
+If K=0
+Goto 1
+Stop

@@ -1,0 +1,7 @@
+
+ClrHome
+Prompt A
+Prompt B
+Input "ANGLE^^o=?",C
+sqrt(A^^2+B^^2-2ABcos(C^^o))->A
+Disp "",A

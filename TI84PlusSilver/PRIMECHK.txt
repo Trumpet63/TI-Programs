@@ -1,0 +1,23 @@
+
+ClrHome
+Prompt N
+ClrHome
+iPart(sqrt(N))+1->B
+2->A
+1->T
+If fPart(N/2)=0
+0->T
+If T=1
+1->A
+While A<B and T!=0
+	A+2->A
+	If fPart(N/A)=0
+	0->T
+	Output(1,1,"     ")
+	Output(1,1,round(100*A/B,1)
+End
+ClrHome
+If T=1
+Disp N,"IS PRIME"
+If T=0
+Disp N,"IS DIVISIBLE BY",A

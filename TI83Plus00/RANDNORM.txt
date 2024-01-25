@@ -1,0 +1,23 @@
+
+ClrHome
+Disp "  RANDOM NORM:  ",""
+Input "CENTRAL NUMBER:?",A
+Input "VARIABILITY:?   ",B
+Input "NUMBER OF TRIALS",C
+ClrHome
+Disp "PLEASE WAIT..\.","","DOING TRIALS..\."
+randNorm(A,B,C)->L4
+Disp "ADJUSTING GRAPH."
+min(L4)*1.05->Xmin
+max(L4)*1.05->Xmax
+C*.05->Ymax
+~(C*.05)->Ymin
+Disp "SETTING PLOT..\.."
+PlotsOff 
+PlotsOn 1
+Plot1(NormProbPlot,L4,X,plotdot)
+Disp "DONE."
+Pause 
+ClrHome
+DispGraph
+Stop

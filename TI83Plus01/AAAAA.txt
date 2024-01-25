@@ -1,0 +1,9 @@
+
+ClrHome
+0->A
+While A>~1
+	randInt(1,6)->A
+	If A=6
+	Output(7,randInt(1,16),"+")
+	Disp "----------------"
+End

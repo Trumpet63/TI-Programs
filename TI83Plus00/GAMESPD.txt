@@ -1,0 +1,47 @@
+
+ClrHome
+Input "PLAYER SPEED",A
+Input "ENEMY SPEED",B
+Input "NUM OF ROUNDS",R
+0->Q
+0->D
+0->E
+1->F
+1->G
+If A>B
+2A->C
+If A<=B
+2B->C
+While Q<R
+	Q+1->Q
+	0->H
+	While D<C and E<C
+		D+FA->D
+		E+GB->E
+	End
+	If D>=C and E<C
+	Then
+		1->H
+		D-C->D
+	End
+	If E>=C and D<C
+	Then
+		2->H
+		E-C->E
+	End
+	If H=0
+	Then
+		If A>B
+		D-C->D
+		If A>B
+		1->H
+		If B>A
+		E-C->E
+		If B>A
+		2->H
+		If A=B
+		randInt(1,2)->H
+	End
+	Disp H
+End
+Stop

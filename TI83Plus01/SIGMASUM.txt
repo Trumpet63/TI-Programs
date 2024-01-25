@@ -1,0 +1,21 @@
+
+ClrHome
+Disp "INPUT FORMULA"
+Input "FOR VARIABLE N: ",Str1
+Str1->{Y0}
+Input "N START=? ",A
+Input "N MAX=? ",B
+ClrHome
+A->N
+0->S
+If B=~1
+10^20->B
+Output(1,1,"N=")
+Output(3,1,"SUM:")
+While N<=B
+	S+{Y0}->S
+	Output(1,4,N)
+	Output(4,1,S)
+	N+1->N
+End
+Stop

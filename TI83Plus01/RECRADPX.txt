@@ -1,0 +1,50 @@
+
+ClrHome
+Output(8,1,"  1=YES  2=NO"
+Disp "CONTINUE FROM"
+Input "LAST SESSION?",S
+If S=1
+Goto 2
+ClrHome
+Input "TARGET VALUE   :",X
+869->A
+76689->B
+0->C
+0->D
+1->E
+0->P
+0->Q
+0->R
+Lbl 2
+ClrHome
+0->Z
+Output(8,1,X)
+Output(4,1,P)
+Output(4,8,Q)
+While Z!=45
+	While C<X
+		A+1->A
+		A/sqrt(B)->C
+		Output(1,1,A)
+		Output(1,8,B)
+		Output(2,1,"                ")
+		Output(2,1,C)
+		Output(5,1,R)
+		abs(C-X)->D
+		If D<E
+		Then
+			D->E
+			A->P
+			B->Q
+			C->R
+			Output(4,1,P)
+			Output(4,8,Q)
+			Output(5,1,"                ")
+			Pause 
+		End
+		getKey->Z
+	End
+	B+1->B
+	A-1->A
+	~1->C
+End

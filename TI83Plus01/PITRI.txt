@@ -1,0 +1,17 @@
+
+ClrHome
+1->A
+0->D
+0->B
+While abs(D-2pi)>0
+	Output(1,1,A)
+	While D<2pi
+		A+10^B->A
+		(3A)/2->S
+		sqrt(S(S-A)^3)->D
+		Output(3,1,D)
+	End
+	A-10^B->A
+	B-1->B
+	0->D
+End

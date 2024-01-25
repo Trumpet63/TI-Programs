@@ -1,0 +1,83 @@
+
+ClrHome
+8->dim(|LCC1)
+8->dim(|LCC2)
+Lbl HM
+ClrHome
+Menu("COOKIE CLICK GC","NEW GAME",AA,"LOAD GAME",AB,"QUIT",AZ)
+Lbl AZ
+Stop
+Lbl AA
+Disp "NEW GAME","","CHOOSE FILE","1 OR 2"
+8->dim(|LCC1)
+8->dim(|LCC2)
+Input ":? ",A
+ClrHome
+If A=1
+Then
+	If |LCC1(1)!=0
+	Then
+		Disp "","FILE 1 DATA","ALREADY EXISTS","","OKAY TO ERASE?","1=YES 2=NO"
+		Input ":? ",B
+		If B=2
+		Goto HM
+	End
+	Fill(0,|LCC1)
+	1->F
+	Goto LD
+	
+End
+If A=2
+Then
+	If |LCC2(1)!=0
+	Then
+		Disp "","FILE 2 DATA","ALREADY EXISTS","","OKAY TO ERASE?","1=YES 2=NO"
+		Input ":? ",B
+		If B=2
+		Goto HM
+	End
+	Fill(0,|LCC2)
+	2->F
+	Goto LD
+	
+Else
+	Goto HM
+End
+Stop
+Lbl AB
+Disp "LOAD FILE 1 OR 2",""
+Input ":? ",F
+Lbl LD
+ClrHome
+If F=1
+|LCC1(1)->A
+|LCC1(2)->B
+|LCC1(3)->C
+|LCC1(4)->D
+|LCC1(5)->E
+|LCC1(6)->F
+|LCC1(7)->G
+|LCC1(8)->H
+
+If F=2
+
+
+
+
+
+Lbl LD
+ClrHome
+0->Z
+While Z!=45
+	
+	0->Z
+	If Z!=45
+	A+1->A
+	
+	While Z=0
+		getKey->Z
+		Output(1,1,A)
+	End
+	
+	
+End

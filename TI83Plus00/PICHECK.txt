@@ -1,0 +1,24 @@
+
+ClrDraw
+AxesOff
+RecallPic 1
+Pause 
+RecallPic 2
+Pause 
+RecallPic 3
+Pause 
+RecallPic 4
+Pause 
+RecallPic 5
+Pause 
+RecallPic 6
+Pause 
+RecallPic 7
+Pause 
+RecallPic 8
+Pause 
+RecallPic 9
+Pause 
+RecallPic 0
+Pause 
+Stop

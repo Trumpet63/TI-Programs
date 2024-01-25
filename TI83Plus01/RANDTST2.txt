@@ -1,0 +1,24 @@
+
+ClrHome
+Output(3,1,"  1=YES   2=NO"
+Input "START NEW TABLE?",A
+If A=1
+Then
+	9->dim(|LA)
+	Fill(0,|LA)
+End
+ClrHome
+Input "HOW MANY VALUES?",C
+ClrHome
+Disp "ENTER DATA"
+For(A,1,C)
+	0->Z
+	While Z=0
+		getKey->Z
+	End
+	fPart((Z-1)/10)*10->B
+	B+3(9-iPart(Z/10))->B
+	Output(3,1,"     ")
+	Output(3,1,round(100A/C,1))
+	|LA(B)+1->|LA(B)
+End

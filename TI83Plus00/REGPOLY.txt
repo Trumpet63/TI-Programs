@@ -1,0 +1,9 @@
+
+ClrHome
+Input " NUM. OF SIDES? ",A
+180(A-2)->B
+ClrHome
+B/A->C:Disp "TRIANGLES=",(A-2)
+Disp "INTERIOR ANGLES=",C
+180-C->D
+Disp "EXTERIOR ANGLES=",D

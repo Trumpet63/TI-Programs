@@ -1,0 +1,160 @@
+
+DelVar [C]
+ClrHome
+Lbl 1
+Input "ROWS:?",A
+Input "COLUMNS:?",B
+A*B->C
+C/2->D
+round(D,0)->E
+If D!=E
+Then
+	Disp "UNEVEN PRODUCT"
+	Goto 1
+End
+If A>8 or B>8
+Then
+	Disp "NUMBER TOO HIGH"
+	Goto 1
+End
+ClrHome
+Disp "THIS MAY TAKE A","MINUTE, IT IS","RANDOMIZING..\."
+Pause 
+ClrHome
+{A,B}->dim([C])
+0->C
+0->D
+0->E
+ClrHome
+0->C
+1->D
+0->Z
+While D<=A
+	While C<B
+		C+1->C
+		Output(D,C,"O"
+	End
+	D+1->D
+	0->C
+End
+0->C
+0->D
+While D<8
+	D+1->D
+	Output(D,9,"^"
+End
+0->D
+Output(1,10,"S=")
+Output(3,10,"T=")
+0->C
+0->D
+1->E
+0->F
+Goto 2
+Stop
+Lbl 8
+Output(7,10,"PRESS:")
+Output(8,10,"ENTER.")
+Pause 
+Output(7,10,"      ")
+Output(8,10,"      ")
+0->Z
+Goto 2
+Stop
+Lbl 2
+While E<=(AB)/2
+	Z+1->Z
+	If Z>100
+	Goto 8
+	randInt(1,A)->C
+	randInt(1,B)->D
+	If [C](C,D)!=0
+	Goto 2
+	E->[C](C,D)
+	F+1->F
+	If F=2
+	E+1->E
+	If F=2
+	0->F
+End
+0->C
+0->D
+0->F
+Output(7,10,"DONE")
+Pause 
+Output(7,10,"    ")
+1->C
+1->D
+2.5(AB)->T
+round(T)->T
+0->S
+Output(1,12,S)
+Output(3,12,T)
+0->E
+0->F
+0->G
+0->H
+Lbl 4
+While T>0
+	0->E
+	While E=0
+		If S=(AB)
+		Goto 9
+		Output(C,D,"."
+		Output(1,12,S)
+		Output(3,12,T)
+		getKey->E
+	End
+	If E=24
+	D-1->D
+	If E=24
+	Output(C,D+1,"O")
+	If E=25
+	C-1->C
+	If E=25
+	Output(C+1,D,"O")
+	If E=26
+	D+1->D
+	If E=26
+	Output(C,D-1,"O")
+	If E=34
+	C+1->C
+	If E=34
+	Output(C-1,D,"O")
+	If C>A
+	A->C
+	If C<1
+	1->C
+	If D>B
+	B->D
+	If D<1
+	1->D
+	If E=105 and F=1
+	Then
+		[C](C,D)->Y
+		Output(6,10,Y)
+		0->F
+		T-1->T
+		Pause 
+		If X=Y
+		S+2->S
+		0->X
+		0->Y
+		Pause 
+		Output(5,10,"  ")
+		Output(6,10,"  ")
+		Goto 4
+	End
+	If E=105
+	Then
+		[C](C,D)->X
+		Output(5,10,X)
+		1->F
+		T-1->T
+	End
+	Goto 4
+	Stop
+	Lbl 9
+	ClrHome
+	Disp "   YOU WON!!!   "
+	Stop

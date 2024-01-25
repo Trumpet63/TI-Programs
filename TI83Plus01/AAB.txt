@@ -1,0 +1,14 @@
+
+1->X
+12->S
+ClrHome
+Disp "NUMBER OF SIDES=","","","APPROXIMATION="
+While S<10^99
+	sqrt(X^^2/4+(1-sqrt(1-X^^2/4))^^2)->X
+	Output(2,1,S)
+	Output(5,1,SX/2)
+	Pause 
+	2S->S
+	Output(2,1,"                ")
+	Output(5,1,"                ")
+End

@@ -1,0 +1,9 @@
+
+ClrHome
+Disp "NUM. OF TIME"
+Input "CONSTANTS=?",T
+e^(~T)*100->I
+100-I->Q
+Disp "","CURRENT=","CHARGE="
+Output(4,10,round(I,2))
+Output(5,9,round(Q,2))

@@ -1,0 +1,278 @@
+
+ClrHome
+Disp "PICK FILE 1 OR 2"
+Input ":",P
+Disp "","LOADING GAME"
+16->dim(|LMA2)
+If P=1
+Then
+	|LMA2(1)->Q
+	|LMA2(2)->R
+	|LMA2(3)->S
+	|LMA2(4)->T
+	|LMA2(5)->U
+	|LMA2(6)->V
+	|LMA2(7)->W
+	|LMA2(8)->X
+End
+Output(4,13,".")
+If P=2
+Then
+	|LMA2(9)->Q
+	|LMA2(10)->R
+	|LMA2(11)->S
+	|LMA2(12)->T
+	|LMA2(13)->U
+	|LMA2(14)->V
+	|LMA2(15)->W
+	|LMA2(16)->X
+End
+Output(4,14,".")
+Lbl MM
+ClrHome
+Menu("MATH TRAINER 2.0","TRAIN ADD",1,"TRAIN SUBT",2,"TRAIN MULT",3,"TRAIN DIVI",4,"SAVE PROGRESS",5,"QUIT",6,"MORE",7)
+Lbl 7
+Menu(">MORE","MY STATS",8,"PLAY SLOTS",9,"BACK",MM)
+End
+Lbl 8
+ClrHome
+Disp " =SKILL LEVELS= ","","ADD:","SUBT:","MULT:","DIVI:"
+Output(3,7,Q)
+Output(4,7,R)
+Output(5,7,S)
+Output(6,7,T)
+Pause 
+ClrHome
+Disp "TOTAL Q'S:","Q'S WRONG:","AVG. TIME:","^^o/plotsquare CORR.:","","MONEY:"
+Output(8,1,"FILE NUMBER:")
+Output(1,12,U)
+Output(2,12,V)
+If U>0
+Output(3,12,round(W/U,1))
+If U>0
+Output(4,12,round(100((U-V)/U),2))
+Output(6,8,round(X,2))
+Output(8,14,P)
+Pause 
+ClrHome
+Goto 7
+End
+Lbl 5
+ClrHome
+Disp "SAVING GAME TO","FILE NUMBER"
+Output(2,13,P)
+If P=1
+Then
+	Q->|LMA2(1)
+	R->|LMA2(2)
+	S->|LMA2(3)
+	T->|LMA2(4)
+	U->|LMA2(5)
+	V->|LMA2(6)
+	W->|LMA2(7)
+	X->|LMA2(8)
+End
+Output(2,14,".")
+If P=2
+Then
+	Q->|LMA2(9)
+	R->|LMA2(10)
+	S->|LMA2(11)
+	T->|LMA2(12)
+	U->|LMA2(13)
+	V->|LMA2(14)
+	W->|LMA2(15)
+	X->|LMA2(16)
+End
+Output(2,15,".")
+ClrHome
+Disp "DONE!","","PRESS ENTER"
+Pause 
+Goto MM
+End
+Lbl 6
+ClrHome
+Stop
+End
+Lbl 1
+1->A
+Goto A
+End
+Lbl 2
+2->A
+Goto A
+End
+Lbl 3
+3->A
+Goto A
+End
+Lbl 4
+4->A
+Goto A
+End
+Lbl A
+ClrHome
+Disp " ARE YOU READY? ","","  PRESS ENTER!  "
+Pause 
+Lbl B
+ClrHome
+If A=1
+Then
+	randInt(round(Q/1.5,0),round((Q/2)Q,0))->B
+	randInt(round(Q/1.5,0),round((Q/2)Q,0))->C
+	B+C->D
+	Disp "     +     = ?"
+End
+If A=2
+Then
+	randInt(round((R/2)R,0),round((R/1.5)R,0))->B
+	randInt(round(R/1.5,0),round((R/2)0.8R,0))->C
+	While C>=B
+		B+1->B
+	End
+	B-C->D
+	Disp "     -     = ?"
+End
+If A=3
+Then
+	randInt(1+round(0.2S,0),round(1.2S,0))->B
+	randInt(1+round(0.2S,0),round(1.2S,0))->C
+	BC->D
+	Disp "     *     = ?"
+End
+If A=4
+Then
+	randInt(1+round(0.2T,0),round(1.2T,0))->B
+	randInt(1+round(0.2T,0),round(1.2T,0))->C
+	If C<1
+	1->C
+	BC->B
+	B/C->D
+	Disp "     /     = ?"
+End
+Lbl B1
+randInt(round(0.8D,0),round(1.2D,0))->E
+randInt(round(0.8D,0),round(1.2D,0))->F
+randInt(round(0.8D,0),round(1.2D,0))->G
+If A<4
+Then
+	If D>200
+	Then
+		D-iPart(D/10)*10->N
+		iPart(E/10)*10+N->E
+		iPart(F/10)*10+N->F
+		iPart(G/10)*10+N->G
+	End
+	If D>2000
+	Then
+		D-iPart(D/100)*100->N
+		iPart(E/100)*100+N->E
+		iPart(F/100)*100+N->F
+		iPart(G/100)*100+N->G
+	End
+End
+Lbl B2
+While E=D or E=F or E=G or F=D or F=G or G=D
+	If E=D
+	E+1->E
+	If E=F
+	E+1->E
+	If E=G
+	E+1->E
+	If F=D
+	F+1->F
+	If F=G
+	F+1->F
+	If G=D
+	G+1->G
+End
+Lbl C
+4->dim(|LTMP)
+DelVar |LTMP
+4->dim(|LTMP)
+1->H
+While H<5
+	randInt(1,4)->I
+	If |LTMP(I)=0
+	Then
+		If H=1
+		D->|LTMP(I)
+		If H=2
+		E->|LTMP(I)
+		If H=3
+		F->|LTMP(I)
+		If H=4
+		G->|LTMP(I)
+		H+1->H
+	End
+End
+Output(1,1,B)
+Output(1,7,C)
+Output(5,6,"<   >")
+Output(4,7,"^"
+Output(6,7,"V"
+Output(5,1,|LTMP(1))
+Output(5,11,|LTMP(3))
+Output(3,7,|LTMP(2))
+Output(7,7,|LTMP(4))
+Lbl C1
+0->J
+0->K
+While J!=24 and J!=25 and J!=26 and J!=34 and J!=45
+	K+1->K
+	getKey->J
+	Output(8,1,K)
+End
+If J=24
+|LTMP(1)->L
+If J=25
+|LTMP(2)->L
+If J=26
+|LTMP(3)->L
+If J=34
+|LTMP(4)->L
+If J=45
+Goto MM
+If L=D
+Then
+	Output(2,1,"CORRECT!")
+	1.5-K/100->M
+	If M<0
+	0->M
+	If A=1
+	Q+M->Q
+	If A=2
+	R+M->R
+	If A=3
+	S+M->S
+	If A=4
+	T+M->T
+	If Q<0
+	0->Q
+	If R<0
+	0->R
+	If S<0
+	0->S
+	If T<0
+	0->T
+	X+(1.2-K/250)->X
+	U+1->U
+	W+K->W
+Else
+	U+1->U
+	V+1->V
+	W+K->W
+	Output(2,1,"ANSWER IS:  "
+	Output(2,12,D)
+	If A=1 and Q!=0
+	Q-1->Q
+	If A=2 and R!=0
+	R-1->R
+	If A=3 and S!=0
+	S-1->S
+	If A=4 and T!=0
+	T-1->T
+End
+Pause 
+Goto B
+Stop

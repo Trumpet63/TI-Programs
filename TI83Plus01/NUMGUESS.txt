@@ -1,0 +1,54 @@
+
+ClrHome
+4->dim(|LTMP)
+Fill(0,|LTMP)
+1->C
+Disp "RANGE OF NUMBERS"
+Input "MIN=?",A
+Input "MAX=?",B
+While C!=2
+	randInt(A,B)->N
+	For(P,1,2)
+		ClrHome
+		Disp "","","",""
+		Output(1,1,"PLAYER   ( )")
+		Output(1,8,P)
+		Output(1,11,|LTMP(P+2))
+		Output(2,1," NUMBER BETWEEN")
+		Output(3,1,A)
+		Output(3,6,"AND")
+		Output(3,10,B)
+		Input "GUESS=?",G
+		G->|LTMP(P)
+	End
+	ClrHome
+	For(P,1,2)
+		Disp "P :"
+		Output(P,2,P)
+		Output(P,5,|LTMP(P))
+		abs(|LTMP(P)-N)->|LTMP(P)
+	End
+	Disp "N="
+	Output(3,4,N)
+	Disp ""
+	If |LTMP(1)=|LTMP(2)
+	Then
+		Disp "IT'S A TIE!"
+	Else
+		If |LTMP(1)>|LTMP(2)
+		Then
+			Disp "PLAYER 2 WINS!"
+			|LTMP(4)+1->|LTMP(4)
+		End
+		If |LTMP(2)>|LTMP(1)
+		Then
+			Disp "PLAYER 1 WINS!"
+			|LTMP(3)+1->|LTMP(3)
+		End
+	End
+	Pause 
+	ClrHome
+	Output(3,1,"  1=YES  2=NO")
+	Input "CONTINUE?       ",C
+	ClrHome
+End

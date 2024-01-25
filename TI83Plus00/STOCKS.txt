@@ -1,0 +1,231 @@
+
+ClrDraw
+
+Pause 
+ClrDraw
+ClrHome
+11->dim(|LSTOCK)
+Lbl 1
+Menu("===THE STOCKS===","NEW GAME",AA,"LOAD GAME",AB,"ABOUT",AC,"INSTRUCTIONS",ZZ,"QUIT",AD)
+Lbl ZZ
+Disp "THIS GAME IS","SELF-EXPLANATORY","FOR THE MOST","PART EXCEPT FOR","A FEW THINGS..\."," (PRESS ENTER.) "
+Pause 
+ClrHome
+Disp "-ONLY 1 SAVED","GAME AT A TIME ","-YOU PAY TAXES","ON STOCKS  -THE","STOCK GRAPH IS","THE ONLY WAY THE","STOCKS CHANGE"
+Pause 
+ClrHome
+Disp "-DONT MESS WITH","THE LIST!!!","-PRESS ENTER IN","THE STOCK GRAPH","TO PROGRESS","-AND CLEAR TO GO","BACK TO THE"
+Output(8,1,"OPTIONS MENU.")
+Pause 
+ClrHome
+Disp "HAVE FUN!","BUY LOW AND","SELL HIGH!!!","AND CLEAR YOUR","Y='S OKAY?"
+Pause 
+ClrHome
+Goto 1
+Stop
+Lbl AB
+ClrDraw
+ClrHome
+Disp "LOADING GAME..\.."
+AxesOff
+0->Xmin
+94->Xmax
+0->Ymin
+62->Ymax
+|LSTOCK(1)->A
+|LSTOCK(2)->B
+|LSTOCK(3)->C
+|LSTOCK(4)->D
+|LSTOCK(5)->E
+|LSTOCK(6)->F
+|LSTOCK(7)->G
+|LSTOCK(8)->H
+|LSTOCK(9)->I
+|LSTOCK(10)->J
+|LSTOCK(11)->K
+ClrHome
+Disp " GAME LOADED!!! "
+Pause 
+ClrHome
+Goto 2
+Stop
+Lbl AD
+ClrHome
+Stop
+Lbl AC
+ClrHome
+Disp "<  CREATED BY  >"," JEFFREY SPRENG ","","<   STARTED:   >","     6/25/07    ","<   FINISHED   >","    6/30/07     "
+Pause 
+ClrHome
+Goto 1
+Stop
+Lbl AA
+ClrDraw
+ClrHome
+AxesOff
+0->Xmin
+94->Xmax
+0->Ymin
+62->Ymax
+0->A
+15->B
+2->C
+15->D
+500->E
+0->F
+0->G
+0->H
+0->I
+0.1->J
+1000->K
+Lbl 2
+ClrHome
+Menu("=== OPTIONS: ===","BUY NEW RANK",AE,"BUY STOCKS",AF,"SELL STOCKS",AG,"STOCK GRAPH",AH,"STATISTICS",AI,"SAVE GAME",AJ,"<QUIT",AK)
+Lbl AJ
+Disp "SAVING GAME..\..\."
+A->|LSTOCK(1)
+B->|LSTOCK(2)
+C->|LSTOCK(3)
+D->|LSTOCK(4)
+E->|LSTOCK(5)
+F->|LSTOCK(6)
+G->|LSTOCK(7)
+H->|LSTOCK(8)
+I->|LSTOCK(9)
+J->|LSTOCK(10)
+K->|LSTOCK(11)
+ClrHome
+Disp "  GAME SAVED!!  "
+Pause 
+ClrHome
+Goto 2
+Stop
+Lbl AE
+If J=0
+Goto NR
+ClrHome
+Disp "NEW RANK COSTS:",K
+Pause 
+ClrHome
+Menu("BUY A NEW RANK? ","YES",BA,"NO",BB)
+Lbl BA
+If E<K
+Then
+	Disp "NOT ENOUGH CASH:","ONLY HAVE",E
+	Pause 
+	ClrHome
+	Goto 2
+Else
+	E-K->E
+	K*10->K
+	J-0.01->J
+	Disp "STOCK TAXES HAVE","BEEN LOWERED!!!!","YOUR CASH=",E
+	Pause 
+	ClrHome
+	Goto 2
+	Stop
+	Lbl BB
+	ClrHome
+	Goto 2
+	Stop
+	Lbl NR
+	ClrHome
+	Disp "NO NEW RANKS","STOCK TAXES= 0"
+	Pause 
+	ClrHome
+	Goto 2
+	Stop
+	Lbl AI
+	ClrHome
+	Disp "YOUR CASH=",E,"STOCKS OWNED:",G,"STOCKS AT:",D
+	Pause 
+	ClrHome
+	Goto 2
+	Stop
+	Lbl AK
+	ClrHome
+	Goto 1
+	Stop
+	Lbl AH
+	ClrDraw
+	ClrHome
+	D->B
+	0->A
+	2->C
+	Lbl 3
+	Text(57,31,"         ")
+	Text(57,60,"                                ")
+	0->F
+	While F=0
+		getKey->F
+		Line(A,B,C,D)
+		Text(57,1,"STOCKS= ")
+		Text(57,31,D)
+		Text(57,40,"CASH: ")
+		Text(57,60,E)
+	End
+	If F=45
+	Goto 2
+	JG->H
+	round(H,0)->H
+	E-H->E
+	D->B
+	C->A
+	C+2->C
+	D+randInt(~5,5)->D
+	If D<6
+	6->D
+	If C>94
+	Goto 4
+	If D>62
+	62->D
+	Goto 3
+	Stop
+	Lbl 4
+	ClrDraw
+	0->C
+	0->A
+	D->B
+	Goto 3
+	Stop
+	Lbl AF
+	ClrHome
+	Output(8,1,"STOCKS AT: ")
+	Output(8,12,D)
+	Output(6,1,"YOUR CASH= ")
+	Output(7,1,E)
+	Input " BUY HOW MANY? :",I
+	If E>(ID) and I>~1
+	Then
+		ClrHome
+		E-(ID)->E
+		G+I->G
+		Disp "YOUR CASH=",E
+		Pause 
+		ClrHome
+		Goto 2
+	Else
+		Goto AF
+		Stop
+		Lbl AG
+		ClrHome
+		Output(4,1,"STOCKS AT: ")
+		Output(4,12,D)
+		Output(5,1,"STOCKS OWNED: ")
+		Output(6,1,G)
+		Output(7,1,"YOUR CASH=")
+		Output(8,1,E)
+		Input "SELL HOW MANY? :",I
+		If G>=I and I>~1
+		Then
+			ClrHome
+			E+(ID)->E
+			G-I->G
+			Disp "YOUR CASH=",E
+			Disp "STOCKS OWNED:",G
+			Pause 
+			ClrHome
+			Goto 2
+		Else
+			Goto AG
+			Stop

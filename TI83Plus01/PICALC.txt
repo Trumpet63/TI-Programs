@@ -1,0 +1,9 @@
+
+ClrHome
+0->P
+1->X
+For(N,0,651)
+	P+4(((~1)^NX^(2N+1))/(2N+1))->P
+	Output(1,1,P)
+	Output(8,1,N)
+End

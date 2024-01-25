@@ -1,0 +1,23 @@
+
+ClrHome
+"IF 1 IN N PEOPLE WILL EXPERIENCE SOMETHING AND I HAVE A GROUP OF N PEOPLE, WHAT IS THE CHANCE AT LEAST 1 WILL HAVE SAID EXPERIENCE?"
+Input "SAMPLE SIZE=?   ",N
+Input "MAX TESTS=?     ",M
+0->A
+0->B
+Disp "","","","","","","",""
+For(C,1,M)
+	0->S
+	0->R
+	While R!=1 and S<N
+		randInt(1,N)->Z
+		If Z=N
+		1->R
+		S+1->S
+	End
+	If R=1
+	A+1->A
+	Output(7,1,B)
+	B+1->B
+	Disp A/B
+End

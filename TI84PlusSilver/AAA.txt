@@ -1,0 +1,15 @@
+
+Input "WATTS=?",W
+W->A
+0->N
+0->S
+While A>0
+	Disp A
+	A/2-1->B
+	S+B/100->S
+	S+N->S
+	B->A
+	Disp S
+	Pause 
+	N+1->N
+End

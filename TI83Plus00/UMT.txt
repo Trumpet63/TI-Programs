@@ -1,0 +1,149 @@
+
+
+ClrHome
+6->dim(|LUMT)
+Lbl 1
+ClrHome
+0->A
+While A!=92 and A!=93 and A!=94 and A!=82 and A!=83 and A!=84
+	Output(1,1,"SUPER MATH TUTOR"
+	Output(3,1," 1.MULT. 2.DIV. ")
+	Output(5,1," 3.SUBT. 4.ADD. "
+	Output(7,1," 5.INST. 6.QUIT "
+	getKey->A
+End
+ClrHome
+If A=92
+Goto 2
+If A=93
+Goto 3
+If A=94
+Goto 4
+If A=82
+Goto 5
+If A=83
+Goto 6
+If A=84
+Stop
+Lbl 2
+Input "MULTIPLY BY:?",E
+1->A
+1->B
+0->C
+~1E->D
+ClrHome
+Disp "1               "
+While A=B
+	D+E->D
+	EA->A
+	Input "*=?",B
+	C+D->C
+End
+ClrHome
+|LUMT(U)+C->|LUMT(U)
+Disp "SCORE=",C,"","TOTAL=",|LUMT(U)
+Pause 
+Goto 1
+Stop
+Lbl 3
+Input "DIVIDE BY:?",A
+~1A->B
+Input "MAX START:?",C
+1->D
+While D<C
+	DA->D
+End
+If D>C
+D/A->D
+ClrHome
+Disp D
+D->B
+~1A->C
+A->E
+While D=B
+	D/A->D
+	Input "/=?",B
+	C+E->C
+	E+A->E
+End
+ClrHome
+|LUMT(U)+C->|LUMT(U)
+Disp "SCORE=",C,"","TOTAL=",|LUMT(U)
+Pause 
+ClrHome
+Goto 1
+Stop
+Lbl 4
+Input "MAX SUBTRACT=?",A
+ClrHome
+Input "START AT:?",B
+ClrHome
+0->C
+0->D
+0->E
+0->F
+Disp B
+B->D
+While B=D
+	E+C->E
+	randInt(1,A)->C
+	Disp "","MINUS",C
+	B-C->B
+	Input "=?",D
+End
+ClrHome
+|LUMT(U)+E->|LUMT(U)
+Disp "SCORE=",E,"","TOTAL=",|LUMT(U)
+Pause 
+ClrHome
+Goto 1
+Stop
+Lbl 5
+Input "MAX ADD=?",A
+ClrHome
+1->B
+1->C
+0->D
+0->E
+Disp "1               "
+While B=C
+	E+D->E
+	randInt(1,A)->D
+	B+D->B
+	Disp "","PLUS",D
+	Input "=?",C
+End
+ClrHome
+|LUMT(U)+E->|LUMT(U)
+Disp "SCORE=",E,"","TOTAL=",|LUMT(U)
+Pause 
+ClrHome
+Goto 1
+Stop
+Lbl 6
+Disp "THIS PROGRAM WAS","CREATED TO HELP","SHARPEN THE","SKILLS OF BOTH","YOUNG CHILDREN","AND YOUNG ADULTS","IN MATH AREAS."
+Pause 
+ClrHome
+Disp "EACH OF THE 4","MATH AREAS ARE","USED DIFFERENTLY","","MULTIPLICATION","STARTS AT 1 AND","MULTIPLIES BY"
+Pause 
+ClrHome
+Disp "THE NUMBER THAT","YOU ARE ASKED","FOR. EX:1,2,4,","8,16,32,64,128.."
+Pause 
+ClrHome
+Disp "THE DIVISION IS","RUN SIMILARLY","DIVIDING DOWN","FROM A STARTING","NUMBER THAT YOU","CAN LIMIT."
+Pause 
+ClrHome
+Disp "SUBTRACTION IS","SIMPLE, YOU","RANDOMLY TAKE","AWAY FROM A","STARTING NUMBER."
+Pause 
+ClrHome
+Disp "ADDITION IS ALSO","SIMPLE, YOU GET","TO RANDOMLY ADD","TO 1, JUST LIKE","SUBTRACTION."
+Pause 
+ClrHome
+Disp "THE SCORES THAT","YOU GET AT THE","END ARE USED TO","GAUGE THE SKILL","LEVEL OF SEVERAL","USERS."
+Pause 
+ClrHome
+Disp "I HOPE YOU ENJOY","AND BENIFIT FROM","USING THIS","PROGRAM","","----------------"," JEFFREY SPRENG "
+Pause 
+ClrHome
+Goto 1
+Stop

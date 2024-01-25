@@ -1,0 +1,11 @@
+
+ClrHome
+Prompt A
+Prompt B
+Prompt C
+(A+B+C)/2->S
+S(S-A)(S-B)(S-C)->D
+Disp "=SQRT("
+Output(4,7,D)
+Disp "="
+Output(5,2,sqrt(D))

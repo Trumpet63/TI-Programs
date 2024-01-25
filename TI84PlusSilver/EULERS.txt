@@ -1,0 +1,20 @@
+
+ClrHome
+Disp "INITIAL"
+Prompt X
+Disp "","INITIAL"
+Prompt Y
+Disp "","STEP SIZE"
+Prompt H
+Disp "","NUMBER OF STEPS"
+Prompt N
+ClrHome
+0->A
+0->B
+For(Z,1,N)
+	X+Y^^2->M
+	Y+H*M->Y
+	X+H->X
+	Disp "",Z,"",X,Y
+	Pause 
+End

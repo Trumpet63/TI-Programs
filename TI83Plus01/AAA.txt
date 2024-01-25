@@ -1,0 +1,8 @@
+
+ClrHome
+(1+sqrt(5))/2->A
+(1-sqrt(5))/2->B
+For(N,1,10^9)
+	Disp (A^N-B^N)/sqrt(5)
+	Pause 
+End

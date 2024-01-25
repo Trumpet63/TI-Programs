@@ -1,0 +1,91 @@
+
+ClrHome
+Output(4,7,"O   *")
+100->A
+100->B
+randInt(10,20)->T
+Lbl 2
+While A>0 and B>0
+	0->D
+	0->E
+	ClrHome
+	Output(4,7,"O   *")
+	Output(8,2,A)
+	Output(8,6,B)
+	T+randInt(~1,1)->T
+	For(C,1,T)
+		Output(1,1,C)
+		If D=1 and C<T/1.8
+		Then
+			1->E
+			T-1->C
+		End
+		If D>0
+		Goto 1
+		getKey->Z
+		If Z=26
+		1->D
+		If Z=24
+		2->D
+	End
+	Lbl 1
+	Output(1,1,T)
+	E+1->E
+	If D=1 and E!=2 and C>(T/1.3)
+	Then
+		3->D
+		3->E
+	End
+	For(G,1,5)
+		If D=1
+		Then
+			If G=1
+			Output(3,8,"/"
+			If G=2
+			Output(3,9,"/"
+			If G=3
+			Output(4,10,"/")
+			If G=4
+			Output(5,9,"/"
+			If G=5
+			Output(5,8,"/"
+		End
+		If D=2
+		Output(4,8,"="
+		If E=1 and D!=1
+		Then
+			If G=1
+			Output(3,9,"/"
+			If G=2
+			Output(3,8,"/"
+			If G=3
+			Output(4,8,"/"
+			If G=4
+			Output(5,8,"/"
+			If G=5
+			Output(5,9,"/"
+		End
+		If D=3
+		Then
+			If G=2
+			Output(3,7,"/   /"
+			If G=4
+			Output(3,8,"/ /"
+			If G=5
+			Output(3,9,"*"
+		End
+		If E=2
+		Output(4,10,"="
+	End
+	If D=1 and E!=2
+	B-10->B
+	If E=1 and D=0
+	A-10->A
+	If D=2
+	A-4->A
+	If E=2
+	B+1->B
+	Goto 2
+End
+Output(8,2,A)
+Output(8,6,B)

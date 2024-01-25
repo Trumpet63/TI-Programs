@@ -1,0 +1,23 @@
+
+ClrHome
+0->X
+8->dim(L4)
+Fill(0,L4)
+For(theta,1,8)
+	Disp ""
+End
+For(Q,1,50)
+	randInt(0,1)->A
+	A->L4(8)
+	If A=1
+	Disp "*"
+	If A=0
+	Disp ""
+	For(P,1,7)
+		L4(P+1)->L4(P)
+	End
+	If L4(1)=1
+	X+1->X
+	If L4(1)=1
+	Output(1,15,X)
+End

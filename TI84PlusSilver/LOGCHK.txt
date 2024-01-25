@@ -1,0 +1,7 @@
+
+ClrHome
+For(Z,2,10^99)
+	Output(1,1,Z)
+	If fPart(log(Z)/log(1.15))<0.005
+	Stop
+End

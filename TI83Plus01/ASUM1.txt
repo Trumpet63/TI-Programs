@@ -1,0 +1,20 @@
+
+ClrHome
+0->S
+dim(L1)->O
+For(Z,1,O)
+	S+1/L1(Z)->S
+	Z->X
+	ClrHome
+	Output(1,1,S)
+	Output(3,1,L1(Z))
+	Pause 
+	ClrHome
+	While X-1>0
+		X-1->X
+		S-(1/(L1(Z)*L1(X)))->S
+		Output(3,1,L1(X))
+		Output(1,1,S)
+	End
+	Pause 
+End

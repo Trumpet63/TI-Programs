@@ -1,0 +1,54 @@
+
+ClrHome
+Disp " ENTER A NUMBER "," TO BE FACTORED "
+Prompt N
+Output(1,1,"                ")
+Output(2,1,"                ")
+2->A
+0->B
+While N/A>=sqrt(N)
+	Output(1,2,A)
+	Output(1,1," "
+	If fPart(N/A)=0
+	Then
+		Output(1,1,"*"
+		B+1->B
+		B->dim(|LTMP)
+		A->|LTMP(B)
+	End
+	A+1->A
+End
+Lbl 3
+ClrHome
+Disp "1    *"
+Output(1,8,N)
+1->D
+0->C
+Goto 1A
+Lbl 1
+ClrHome
+Lbl 1A
+While C<B
+	C+1->C
+	D+1->D
+	Output(D,1,|LTMP(C))
+	Output(D,6,"*"
+	Output(D,8,N/|LTMP(C))
+	If D=7
+	Goto 2
+End
+Output(8,1,"TOTAL="
+Output(8,8,2B+2)
+0->K
+While K=0
+	getKey->K
+End
+If K=105
+Goto 3
+Stop
+Lbl 2
+Output(8,1,"..\.")
+0->D
+Pause 
+Goto 1
+Stop

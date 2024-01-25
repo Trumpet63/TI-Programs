@@ -1,0 +1,61 @@
+
+ClrHome
+0->A
+0->B
+0->C
+0->D
+Disp "HIGHER OR LOWER!":Pause 
+Disp "","","","","","","",""
+ClrHome
+Disp "PRESS UP IF YOU","THINK THE NEXT","CARD WILL BE","HIGHER,DOWN IF","YOU THINK LOWER.","THE ACE IS HIGH."
+Pause 
+ClrHome
+randInt(2,14)->B:B->A
+Lbl 1
+If A>10
+Then
+	If A=11
+	Output(2,3,"J"
+	If A=12
+	Output(2,3,"Q"
+	If A=13
+	Output(2,3,"K"
+	If A=14
+	Output(2,3,"A"
+	Goto 2
+Else:If A<=10
+	Output(2,3,A)
+	Lbl 2
+	0->C
+	While C=0
+		getKey->C
+	End
+	If C!=25 and C!=34
+	Goto 2
+	randInt(2,14)->A:If A=B:Goto 3
+	If C=25
+	Then
+		If A>B
+		Goto 3
+		If A<B
+		Goto 5
+	Else
+		If C=34
+		Then
+			If A<B
+			Goto 3
+			If A>B
+			Goto 5
+			Stop
+			Lbl 3
+			D+1->D
+			A->B
+			ClrHome
+			Goto 1
+			Stop
+			Lbl 5
+			ClrHome
+			Disp "YOU SCORED:",D
+			Disp "THE NEXT ONE WAS"
+			Disp A
+			Stop

@@ -1,0 +1,7 @@
+
+ClrHome
+0->A
+For(N,2,10^99)
+	A+1/(N nCr 2)-1/(N nPr 2)->A
+	Output(1,1,A)
+End

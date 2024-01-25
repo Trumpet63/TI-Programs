@@ -1,0 +1,86 @@
+
+ClrHome
+Lbl 1
+Menu("PHY2049 CH.26-27","CAPACITANCE",CC,"CURRENT",II,"RESISTANCE",RR,"QUIT",ZZ)
+Lbl CC
+Menu("CAPACITANCE","PARALLEL",A1,"SERIES",B1,"BACK",1)
+Lbl II
+Menu("CURRENT","PARALLEL",C1,"SERIES",D1,"BACK",1)
+Lbl ZZ
+Stop
+Lbl A1
+ClrHome
+Input "VOLTAGE=?",V
+Disp ""
+Disp "NUMBER OF"
+Input "CAPACITORS=?",N
+Disp ""
+N->dim(|LCAP)
+For(Z,1,N)
+	Prompt C
+	C->|LCAP(Z)
+End
+ClrHome
+Disp "Q TOTAL=",sum(|LCAP)*V
+Disp "Q="
+For(Z,1,N)
+	Disp |LCAP(Z)*V
+End
+Pause 
+Goto 1
+Stop
+Lbl B1
+ClrHome
+Input "VOLTAGE=?",V
+Disp ""
+Disp "NUMBER OF"
+Input "CAPACITORS=?",N
+Disp ""
+N->dim(|LCAP)
+For(Z,1,N)
+	Prompt C
+	C->|LCAP(Z)
+End
+ClrHome
+0->A
+For(Z,1,N)
+	A+1/|LCAP(Z)->A
+End
+1/A->A
+Disp "Q TOTAL=",A*V
+Disp "V="
+For(Z,1,N)
+	Disp A*V/|LCAP(Z)
+End
+Pause 
+Goto 1
+Stop
+Lbl C1
+ClrHome
+Input "VOLTAGE=?",V
+Disp ""
+Disp "NUMBER OF"
+Input "RESISTORS=?",N
+Disp ""
+N->dim(|LRES)
+For(Z,1,N)
+	Prompt R
+	R->|LRES(Z)
+End
+
+Stop
+Lbl D1
+
+
+
+
+Stop
+Lbl RR
+Input "R0=?",R
+Input "A=?",A
+Input "T=?",T
+Disp ""
+Disp R(1+A(T-20))
+Pause 
+Goto 1
+Stop

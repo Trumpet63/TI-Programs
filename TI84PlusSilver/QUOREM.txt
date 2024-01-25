@@ -1,0 +1,13 @@
+
+ClrHome
+Prompt A
+Prompt B
+ClrHome
+iPart(A/B)->Q
+remainder(abs(A),abs(B))->R
+If A<0
+Then
+	Q-1->Q
+	B-R->R
+End
+Disp "QUOTIENT=",Q,"REMAINDER=",R

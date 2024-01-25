@@ -1,0 +1,22 @@
+ClrHome
+Disp "COST= 200 GOLD"
+Output(3,1,"SWORD STRENGTH="
+Output(6,1,"YOUR GOLD=")
+Output(8,1," (UP OR CLEAR)")
+Lbl 
+0->Z
+Output(4,11, )
+Output(6,11,H)
+While Z=0
+	getKey->Z
+End
+If Z=45
+Goto 
+If Z=25
+Then
+	If H<200
+	Goto 
+	H-200->H
+	 +1->
+End
+Goto 

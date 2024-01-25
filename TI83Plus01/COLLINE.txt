@@ -1,0 +1,43 @@
+
+ClrHome
+0->A
+Input "NUMBR OF POINTS?",B
+2B->dim(|LTMP)
+ClrHome
+0->C
+While A<B
+	A+1->A
+	If C<8
+	C+1->C
+	Output(C,13,"=X")
+	Output(C,15,A)
+	Input F
+	F->|LTMP(2A-1)
+	If C<8
+	C+1->C
+	Output(C,13,"=Y")
+	Output(C,15,A)
+	Input F
+	F->|LTMP(2A)
+	If C<8
+	C+1->C
+	Disp ""
+End
+ClrHome
+|LTMP(1)->X
+|LTMP(2)->Y
+2->C
+While C<2B
+	C+2->C
+	(|LTMP(C)-|LTMP(C-2))/(|LTMP(C-1)-|LTMP(C-3))->|LTMP((C-2)/2)
+End
+(|LTMP(C)-Y)/(|LTMP(C-1)-X)->|LTMP(C/2)
+B->dim(|LTMP)
+SortD(|LTMP)
+Disp "POINTS ARE"
+If |LTMP(1)=mean(|LTMP)
+Then
+	Disp "COLLINEAR"
+Else
+	Disp "NOT COLLINEAR"
+	Stop

@@ -1,0 +1,62 @@
+
+Lbl 1
+ClrHome
+Disp "-{TIMES TABLES}-","RECORD DATA?","  1=YES  2=NO"
+Input "=?",R
+ClrHome
+Disp "-{TIMES TABLES}-","ENTER RANGE:",""
+Input "LOWEST=?",A
+Input "HIGHEST=?",B
+If abs(A)+abs(B)>99
+Goto 1
+For(Z,2,6,1)
+	Output(Z,1,"                ")
+End
+Output(2,1,"ENTER NUMBER OF")
+Output(3,1,"QUESTIONS")
+Prompt N
+ClrHome
+Disp "PRESS ENTER","TO START"
+Pause 
+ClrHome
+startTmr->O
+0->G
+For(Z,1,N)
+	If R=1
+	startTmr->P
+	ClrHome
+	randInt(A,B)->C
+	randInt(A,B)->D
+	C*D->E
+	3->F
+	Output(1,1,C)
+	If C>9
+	F+1->F
+	Output(1,F,"*"
+	F+2->F
+	Output(1,F,D)
+	Disp "",""
+	Input "=",H
+	If H=E
+	G+1->G
+	If R=1
+	Then
+		Z->dim(L6)
+		checkTmr(P)->L6(Z)
+	End
+End
+ClrHome
+Disp "FINISHED!!","CORRECT:","       =","","     SEC/Q"
+checkTmr(O)->T
+9->F
+Output(2,F,G)
+F+1->F
+If G>9
+F+1->F
+If G>99
+F+1->F
+Output(2,F,"/"
+Output(2,F+1,N
+Output(3,9,round(100G/N,1))
+Output(5,1,round(T/G,2))
+Stop

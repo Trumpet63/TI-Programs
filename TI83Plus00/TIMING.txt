@@ -1,0 +1,91 @@
+
+ClrHome
+Disp "GUITAR HERO:","PRACTICE","","1EA 2MD 3HD 4EX "
+Input ":? ",B
+Disp "","1-100"
+Input "NOTE SPEED: ",L
+ClrHome
+100-L->L
+Disp "FLIP CALC NOW"
+For(Z,1,800)
+End
+ClrHome
+0->A
+0->K
+If B=2
+Goto 2
+If B=3
+Goto 3
+If B=4
+Goto 4
+Lbl 1
+While K!=45
+	getKey->K
+	Output(1,1,"^^^^^")
+	For(Z,1,L)
+	End
+	randInt(1,3)->A
+	If A=1
+	Disp "    O""If A=2
+	Disp "   O"
+	If A=3
+	Disp "  O"
+End
+Stop
+Lbl 2
+While K!=45
+	getKey->K
+	Output(1,1,"^^^^^"
+	For(Z,1,L)
+	End
+	randInt(1,4)->A
+	If A=1
+	Disp "    O"
+	If A=2
+	Disp "   O"
+	If A=3
+	Disp "  O"
+	If A=4
+	Disp " O"
+End
+Stop
+Lbl 3
+While K!=45
+	getKey->K
+	Output(1,1,"^^^^^")
+	For(Z,1,L)
+	End
+	randInt(1,6)->A
+	If A=1
+	Disp "    O"
+	If A=2
+	Disp "   O"
+	If A=3
+	Disp "  O"
+	If A=4
+	Disp " O"
+	If A=5
+	Disp "O"
+	If A=6
+	Disp " "
+End
+Stop
+Lbl 4
+While K!=45
+	getKey->K
+	Output(1,1,"^^^^^")
+	For(Z,1,L)
+	End
+	randInt(1,5)->A
+	If A=1
+	Disp "    O"
+	If A=2
+	Disp "   O"
+	If A=3
+	Disp "  O"
+	If A=4
+	Disp " O"
+	If A=5
+	Disp "O"
+End
+Stop

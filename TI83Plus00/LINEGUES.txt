@@ -1,0 +1,22 @@
+
+ClrHome
+ClrDraw
+FnOff 
+ZDecimal
+Text(28,1,"LINE -------------- GUESS"
+Pause 
+randInt(~10,10)->A
+0->B
+While B!=A
+	ClrDraw
+	DrawF AX
+	Pause 
+	Prompt B
+	DrawF BX
+End
+ClrDraw
+ClrHome
+Disp "","","","     YOU        ","        WIN     "
+Pause 
+ClrHome
+Stop

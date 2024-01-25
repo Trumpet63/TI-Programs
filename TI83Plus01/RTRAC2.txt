@@ -1,0 +1,55 @@
+
+ClrHome
+Disp "","","","","","","","","RACE","","","","","","","","     TRACKS","","","","","","","","            2","            2","            2","            2","            2","            2","            2","","","","","","","","","","","  RACETRACKS 2  ","       BY       "," JEFFREY SPRENG "
+Pause 
+Lbl 1
+ClrHome
+Menu("-=RACETRACKS 2-=","PLAY GAME",PG,"WHATS NEW?",WN,"HOW TO PLAY",HT,"HIGHSCORES",HS,"ABOUT",AB,"QUIT",QU)
+ClrHome
+Lbl QU
+Stop
+Lbl AB
+Disp "MADE BY:","JEFFREY SPRENG","","14 YEARS OLD","LOCAL TO FLORIDA","",":)"
+Pause 
+Goto 1
+Stop
+Lbl HS
+Goto 9
+Stop
+Lbl HT
+Disp "YOU SIMPLY MOVE","LEFT AND RIGHT","(ARROW KEYS) TO","STAY ALIVE AND","AVOID THE X'S"
+Pause 
+Goto 1
+Stop
+Lbl WN
+Disp "NOW INTRODUCING","THE NEW TRACK","MODE, NOT JUST","RANDOM ANYMORE!","WITH SEPARATE","HIGHSCORE LISTS!"
+Pause 
+Goto 1
+Stop
+Lbl PG
+Menu("WHICH MODE?","RANDOM MODE",RM,"TRACK MODE",TM)
+ClrHome
+Lbl RM
+8->A
+1->B
+0->S
+Disp "X              X","X              X","X              X","X              X","X              X","X              X","X              X"
+While 1=1
+	For(Y,1,B)
+		Output(8,randInt(1,16),"X")
+	End
+	S+1->S
+	getKey->Z
+	Disp ""
+	Output(1,A,"M"
+	If Z=24
+	A-1->A
+	If Z=26
+	A+1->A
+	If S=100
+	B+1->B
+	If S=200
+	B+1->B
+	If S=300
+	B+1->B
+End

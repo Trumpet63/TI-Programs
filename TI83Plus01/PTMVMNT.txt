@@ -1,0 +1,38 @@
+
+ClrHome
+ZDecimal
+AxesOff
+ClrDraw
+0->A
+0->B
+0->C
+0->D
+0->E
+0->F
+0->Z
+Lbl 1
+C->A:D->B
+Pt-On(A,B,1)
+A+E->C:B+F->D
+getKey->Z
+If Z>0
+Goto 2
+Goto 1
+Lbl 2
+If Z=24
+E-.01->E
+If Z=25
+F+.01->F
+If Z=26
+E+.01->E
+If Z=34
+F-.01->F
+If Z=23
+Then
+	Pt-On(A,B,3)
+	.85E->E
+	.85F->F
+End
+0->Z
+Goto 1
+Stop

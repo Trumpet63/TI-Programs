@@ -1,0 +1,37 @@
+
+ClrHome
+Input "ENTER RADICAL:  ",N
+2->A
+1->B
+While A^^2<=N
+	If fPart(N/A^^2)=0
+	Then
+		N/A^^2->N
+		BA->B
+		A-1->A
+	End
+	A+1->A
+End
+Output(4,1,"="
+Output(4,5,"sqrt(")
+If B>99
+Then
+	Output(4,2,B)
+Else
+	If B>9
+	Then
+		Output(4,3,B)
+	Else
+		If B>1
+		Output(4,4,B)
+	End
+End
+0->A
+1->B
+While N/10^B>=1
+	A+1->A
+	B+1->B
+End
+Output(4,7,N)
+Output(4,8+A,")")
+Stop

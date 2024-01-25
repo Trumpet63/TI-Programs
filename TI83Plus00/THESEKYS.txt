@@ -1,0 +1,125 @@
+
+ClrHome
+Disp "THESE KEYS:"
+Pause 
+ClrHome
+0->D
+1->A
+1->B
+While D<16
+	0->Z
+	While Z=0
+		getKey->Z
+	End
+	If Z=11
+	"Y="->Str1
+	If Z=12
+	"WINDOW"->Str1
+	If Z=13
+	"ZOOM"->Str1
+	If Z=14
+	"TRACE"->Str1
+	If Z=15
+	"GRAPH"->Str1
+	If Z=21
+	"2[recursiven][|d]"->Str1
+	If Z=22
+	"MODE"->Str1
+	If Z=23
+	"DEL"->Str1
+	If Z=24
+	"<-"->Str1
+	If Z=25
+	"UP"->Str1
+	If Z=26
+	"-\>"->Str1
+	If Z=31
+	"ALPHA"->Str1
+	If Z=32
+	"X,T,theta,[recursiven]"->Str1
+	If Z=33
+	"STAT"->Str1
+	If Z=34
+	"DOWN"->Str1
+	If Z=41
+	"MATH"->Str1
+	If Z=42
+	"APPS"->Str1
+	If Z=43
+	"PRGM"->Str1
+	If Z=44
+	"VARS"->Str1
+	If Z=45
+	"CLEAR"->Str1
+	If Z=51
+	"X^^-1"->Str1
+	If Z=52
+	"SIN"->Str1
+	If Z=53
+	"COS"->Str1
+	If Z=54
+	"TAN"->Str1
+	If Z=55
+	"^"->Str1
+	If Z=61
+	"X^^2"->Str1
+	If Z=62
+	","->Str1
+	If Z=63
+	"("->Str1
+	If Z=64
+	")"->Str1
+	If Z=65
+	"/"->Str1
+	If Z=71
+	"LOG"->Str1
+	If Z=72
+	"7"->Str1
+	If Z=73
+	"8"->Str1
+	If Z=74
+	"9"->Str1
+	If Z=75
+	"*"->Str1
+	If Z=81
+	"LN"->Str1
+	If Z=82
+	"4"->Str1
+	If Z=83
+	"5"->Str1
+	If Z=84
+	"6"->Str1
+	If Z=85
+	"-"->Str1
+	If Z=91
+	"STO-\>"->Str1
+	If Z=92
+	"1"->Str1
+	If Z=93
+	"2"->Str1
+	If Z=94
+	"3"->Str1
+	If Z=95
+	"+"->Str1
+	If Z=102
+	"0"->Str1
+	If Z=103
+	"."->Str1
+	If Z=104
+	"(-)"->Str1
+	If Z=105
+	"ENTER"->Str1
+	D+1->D
+	If A>8
+	Then
+		1->A
+		ClrHome
+	End
+	Output(A,B,Str1)
+	B+8->B
+	If B=17
+	Then
+		1->B
+		A+1->A
+	End
+End

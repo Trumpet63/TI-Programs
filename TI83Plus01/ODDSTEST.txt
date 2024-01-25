@@ -1,0 +1,33 @@
+
+ClrHome
+Disp "FIRST ROLL:"
+Input "LEAST=",A
+Input "MOST=",B
+ClrHome
+Disp "SECOND ROLL:"
+Input "LEAST=",C
+Input "MOST=",D
+ClrHome
+Input "NUMBER OF TESTS:",E
+ClrHome
+0->F
+Output(1,1,"1ST ROLL WINS=")
+Output(3,1,"2ND ROLL WINS=")
+Output(5,1,"TIES=")
+0->I
+0->J
+0->K
+While F<E
+	randInt(A,B)->G
+	randInt(C,D)->H
+	If G>H
+	I+1->I
+	Output(2,1,I)
+	If H>G
+	J+1->J
+	Output(4,1,J)
+	If G=H
+	K+1->K
+	Output(6,1,K)
+	F+1->F
+End

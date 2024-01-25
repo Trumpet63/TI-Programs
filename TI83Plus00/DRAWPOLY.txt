@@ -1,0 +1,22 @@
+
+ClrHome
+ClrDraw
+AxesOff
+1->Xmax
+~1->Xmin
+1->Ymax
+~1->Ymin
+ZSquare
+0->theta
+1->A
+0->B
+Input "NUMBER OF SIDES?",S
+ClrHome
+2pi/S->theta
+For(Z,1,S)
+	cos(Ztheta)->C
+	sin(Ztheta)->D
+	Line(A,B,C,D)
+	C->A
+	D->B
+End

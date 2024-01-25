@@ -1,0 +1,68 @@
+
+ClrHome
+Disp " ENTER A NUMBER ","TO BE FACTORIZED"
+Prompt N
+ClrHome
+2->A
+0->B
+N->C
+Disp C
+While C>1
+	If fPart(C/A)=0
+	Then
+		C/A->C
+		Disp C
+		B+1->B
+		B->dim(|LTMP)
+		A->|LTMP(B)
+		A-2->A
+		If A=0
+		1->A
+	End
+	A+1->A
+	If A>3
+	A+1->A
+	If A>sqrt(C)
+	C->A
+	Output(8,1,A)
+End
+0->A
+0->C
+0->D
+0->E
+1->dim(|LTM1)
+DelVar |LTM1
+ClrHome
+Disp "COUNTING..\.."
+While A<B
+	A+1->A
+	If |LTMP(A)>0
+	Then
+		|LTMP(A)->C
+		0->|LTMP(A)
+		D+2->D
+		D->dim(|LTM1)
+		C->|LTM1(D-1)
+		1->|LTM1(D)
+		While A<B
+			A+1->A
+			If |LTMP(A)=C
+			Then
+				|LTM1(D)+1->|LTM1(D)
+				0->|LTMP(A)
+			End
+		End
+		0->A
+	End
+End
+Lbl 1
+ClrHome
+0->A
+0->B
+While A<D/2
+	A+1->A
+	Output(A,1,|LTM1(2A-1))
+	Output(A,13,"^")
+	Output(A,15,|LTM1(2A))
+End
+Stop

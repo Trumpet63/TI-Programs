@@ -1,0 +1,9 @@
+
+ClrDraw
+0->A
+10->B
+While A<100
+	Line(~10,B,10,B)
+	B-.3->B
+	A+1->A
+End

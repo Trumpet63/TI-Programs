@@ -1,0 +1,27 @@
+
+ClrHome
+Output(3,1,"  1=YES   2=NO")
+Input "START NEW TABLE?",A
+If A=1
+Then
+	2->dim(|LA2)
+	Fill(0,|LA2)
+End
+ClrHome
+Input "HOW MANY VALUES?",C
+ClrHome
+Disp "ENTER DATA"
+0->S
+For(A,1,C)
+	0->Z
+	While Z=0
+		getKey->Z
+	End
+	If Z=102
+	2->B
+	If Z=92
+	1->B
+	Output(3,1,"     ")
+	Output(3,1,round(100A/C,2))
+	|LA2(B)+1->|LA2(B)
+End

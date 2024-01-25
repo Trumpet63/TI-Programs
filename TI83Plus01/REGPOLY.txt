@@ -1,0 +1,20 @@
+
+ClrHome
+Input "NO. OF SIDES=?  ",A
+ClrHome
+47/31->Xmax
+~47/31->Xmin
+1->Ymax
+~1->Ymin
+AxesOff
+1->C
+0->D
+(2pi)/A->B
+For(Z,1,A)
+	cos(ZB)->X
+	sin(ZB)->Y
+	Line(C,D,X,Y)
+	X->C
+	Y->D
+End
+Stop

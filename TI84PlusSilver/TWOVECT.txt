@@ -1,0 +1,7 @@
+
+Input "U1=?",A
+Input "U2=?",B
+Input "U3=?",C
+Input "V1=?",D
+Input "V2=?",E
+Input "V3=?",F

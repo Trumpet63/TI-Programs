@@ -1,0 +1,13 @@
+
+ClrHome
+Input "X1=",A
+Input "Y1=",B
+Disp ""
+Input "X2=",C
+Input "Y2=",D
+ClrHome
+(D-A)^^2+(C-A)^^2->E
+sqrt(E)->F
+Disp "SQRT(","="
+Output(1,6,E)
+Output(2,2,F)

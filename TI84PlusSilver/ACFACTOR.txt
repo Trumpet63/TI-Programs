@@ -1,0 +1,79 @@
+
+ClrHome
+Prompt A
+Prompt B
+Prompt C
+ClrHome
+A*C->D
+1->H
+If D<0
+~1->H
+iPart(sqrt(abs(D)))->E
+1->F
+0->G
+0->I
+0->J
+While F<=E and G=0
+	If fPart(D/F)=0
+	Then
+		If H*F+abs(D)/F=B
+		Then
+			1->G
+			H*F->I
+			abs(D)/F->J
+		End
+		If F+Habs(D)/F=B
+		Then
+			1->G
+			F->I
+			Habs(D)/F->J
+		End
+		If ~F-abs(D)/F=B
+		Then
+			1->G
+			~F->I
+			~abs(D)/F->J
+		End
+		
+	End
+	
+	F+1->F
+End
+If G=0
+Then
+	Disp "NOT FACTORABLE"
+	Stop
+End
+Disp "FACTORS OF AC:",I,J,"FACTORS:",""
+gcd(abs(A),abs(I))->K
+If A<0 and I<0
+K*~1->K
+gcd(abs(J),abs(C))->L
+If J<0 and C<0
+~1*L->L
+2->M
+Output(5,1,"("
+Output(5,2,K)
+iPart(log(abs(K)))+1+M->M
+If K<0
+M+1->M
+Output(5,M,"X +")
+M+4->M
+Output(5,M,L)
+iPart(log(abs(L)))+1+M->M
+If L<0
+M+1->M
+Output(5,M,")"
+2->M
+Output(6,1,"("
+Output(6,2,A/K
+iPart(log(abs(A/K)))+1+M->M
+If M<0
+M+1->M
+Output(6,M,"X +"
+M+4->M
+Output(6,M,I/K
+iPart(log(abs(I/K)))+1+M->M
+If I/K<0
+M+1->M
+Output(6,M,")"

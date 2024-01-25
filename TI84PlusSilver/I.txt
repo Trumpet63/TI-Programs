@@ -1,0 +1,8 @@
+
+ClrHome
+Prompt A
+Prompt B
+Disp "I(A,B)="
+A+B->C
+~(B/C)*logBASE((B/C),2)-(A/C)*logBASE((A/C),2)->D
+Disp D

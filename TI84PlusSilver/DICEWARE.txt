@@ -1,0 +1,9 @@
+
+ClrHome
+For(Z,1,5)
+	Disp ""
+	For(Y,1,5)
+		randInt(1,6)->X
+		Output(Z,Y,X)
+	End
+End

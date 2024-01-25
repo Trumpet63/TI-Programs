@@ -1,0 +1,143 @@
+
+ClrHome
+Output(8,1,"===RACETRACKS===")
+Disp "","","","","","","","      :BY:      "
+Output(7,1,"===RACETRACKS===")
+Disp "","","","","","","",""," JEFFREY SPRENG "
+Output(7,1,"      :BY:      ")
+Output(6,1,"===RACETRACKS===")
+Output(8,1," JEFFREY SPRENG ")
+Pause 
+Lbl 1
+ClrHome
+Menu("===RACETRACKS===","PLAY GAME",PG,"HIGHSCORES",HS,"HOW TO PLAY",IN,"ABOUT",AB,"QUIT",QU)
+Lbl QU
+ClrHome
+Stop
+Lbl AB
+ClrHome
+Disp ":JEFFREY SPRENG:","","AGE:14","","LIVES IN FLORIDA","","TOOK 1 DAYS"
+Pause 
+Goto 1
+Stop
+Lbl IN
+ClrHome
+Disp "USE THE LEFT AND","RIGHT ARROW KEYS","TO MOVE YOUR CAR","AND AVOID THE","OBSTACLES."
+Pause 
+Goto 1
+Stop
+Lbl HS
+Goto 9
+Stop
+Lbl PG
+8->B
+0->S
+3->T
+Lbl 2
+T+1->T
+ClrHome
+1->A
+Output(A,B,"M"
+If T>15
+15->T
+0->C
+0->dim(|LRDAT)
+16->dim(|LRDAT)
+While C<15
+	randInt(1,1+T)->|LRDAT(C+1)
+	randInt(16,16-T)->|LRDAT(C+2)
+	C+2->C
+End
+1->C
+1->|LRDAT(1)
+16->|LRDAT(2)
+2->|LRDAT(3)
+15->|LRDAT(4)
+Output(1,|LRDAT(1),"X")
+Output(1,|LRDAT(2),"X")
+Output(2,|LRDAT(3),"X")
+Output(2,|LRDAT(4),"X")
+Output(3,|LRDAT(5),"X")
+Output(3,|LRDAT(6),"X")
+Output(4,|LRDAT(7),"X")
+Output(4,|LRDAT(8),"X")
+Output(5,|LRDAT(9),"X")
+Output(5,|LRDAT(10),"X")
+Output(6,|LRDAT(11),"X")
+Output(6,|LRDAT(12),"X")
+Output(7,|LRDAT(13),"X")
+Output(7,|LRDAT(14),"X")
+Output(8,|LRDAT(15),"X")
+Output(8,|LRDAT(16),"X")
+1->C
+While B!=|LRDAT(C) and B!=|LRDAT(C+1)
+	Output(A,B,"M"
+	S+1->S
+	C+2->C
+	A+1->A
+	getKey->G
+	If G=24
+	B-1->B
+	If G=26
+	B+1->B
+	If B<1
+	1->A
+	If B>16
+	16->B
+	If C>16
+	Goto 2
+End
+Pause 
+ClrHome
+Disp "SCORE=",S,""
+5->dim(|LRHI)
+If S>|LRHI(5)
+Disp "- HIGH SCORE!! -"
+If S<=|LRHI(5)
+Disp "-NO HIGH SCORE.-"
+Pause 
+ClrHome
+If S>|LRHI(1)
+Then
+	|LRHI(4)->|LRHI(5)
+	|LRHI(3)->|LRHI(4)
+	|LRHI(2)->|LRHI(3)
+	|LRHI(1)->|LRHI(2)
+	S->|LRHI(1)
+	Goto 9
+End
+If S>|LRHI(2)
+Then
+	|LRHI(4)->|LRHI(5)
+	|LRHI(3)->|LRHI(4)
+	|LRHI(2)->|LRHI(3)
+	S->|LRHI(2)
+	Goto 9
+End
+If S>|LRHI(3)
+Then
+	|LRHI(4)->|LRHI(5)
+	|LRHI(3)->|LRHI(4)
+	S->|LRHI(3)
+	Goto 9
+End
+If S>|LRHI(4)
+Then
+	|LRHI(4)->|LRHI(5)
+	S->|LRHI(4)
+	Goto 9
+End
+If S>|LRHI(5)
+S->|LRHI(5)
+Lbl 9
+ClrHome
+Disp "-=!HIGHSCORES!\=-","","1.","2.","3.","4.","5.
+Output(3,3,|LRHI(1))
+Output(4,3,|LRHI(2))
+Output(5,3,|LRHI(3))
+Output(6,3,|LRHI(4))
+Output(7,3,|LRHI(5))
+Pause 
+ClrHome
+Goto 1
+Stop

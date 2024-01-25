@@ -1,0 +1,22 @@
+
+ClrHome
+Disp "INPUT BASE 10","NUMBER"
+Prompt N
+ClrHome
+Disp "INPUT BASE LESS","THAN 10"
+Prompt B
+ClrHome
+N->A
+0->X
+1->Q
+0->R
+0->I
+While Q>0
+	iPart(A/B)->Q
+	remainder(A,B)->R
+	R*10^(I)+X->X
+	Q->A
+	I+1->I
+End
+
+Disp N,"IN BASE",B,"IS",X

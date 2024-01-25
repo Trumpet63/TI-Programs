@@ -1,0 +1,13 @@
+
+ClrHome
+1->A
+1->B
+For(Z,1,36)
+	Output(1,1,A)
+	Output(2,1,B)
+	Output(4,1,B/A
+	Pause 
+	A+B->C
+	B->A
+	C->B
+End

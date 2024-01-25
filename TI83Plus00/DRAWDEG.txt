@@ -1,0 +1,24 @@
+
+ClrHome
+ClrDraw
+AxesOff
+1->Xmax
+~1->Xmin
+1->Ymax
+~1->Ymin
+ZSquare
+0->theta
+1->A
+0->B
+Input "DEGREE ROTATION?",R
+Disp ""
+Input "HOW MANY TIMES? ",S
+ClrHome
+piR/180->theta
+For(Z,1,S)
+	cos(Ztheta)->C
+	sin(Ztheta)->D
+	Line(A,B,C,D)
+	C->A
+	D->B
+End

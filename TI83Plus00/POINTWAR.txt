@@ -1,0 +1,139 @@
+
+15->dim(L1)
+ClrDraw
+PlotsOff 
+FnOff 
+AxesOn
+CoordOn
+0->Xmin
+94->Xmax
+~31->Ymin
+31->Ymax
+ClrHome
+Disp "P.O.I.N.T.W.A.R."
+0->C
+While C=0
+	randInt(3,8)->A
+	randInt(1,16)->B
+	Output(A,B,"."
+	randInt(3,8)->A
+	randInt(1,16)->B
+	Output(A,B," "
+	getKey->C
+End
+Output(7,1," BY: ")
+Output(8,1," JEFFREY SPRENG ")
+Pause 
+ClrHome
+Disp "PLAYER 1 SELECT","3 BASE LOCATIONS","IN TOP HALF:"
+Pause 
+1->C
+While C!=7
+	0->X
+	0->Y
+	While X<1 or Y<1
+		Input 
+	End
+	Pt-On(X,Y)
+	X->L1(C)
+	C+1->C
+	Y->L1(C)
+	C+1->C
+End
+L1(1)->D
+L1(2)->E
+L1(3)->F
+L1(4)->G
+L1(5)->H
+L1(6)->I
+ClrHome
+Disp "PLAYER 2 SELECT ","3 BASE LOCATIONS","IN BOTTOM HALF: "
+Pause 
+While C!=13
+	0->X
+	0->Y
+	While X<1 or Y>~1
+		Input 
+	End
+	Pt-On(X,Y)
+	X->L1(C)
+	C+1->C
+	Y->L1(C)
+	C+1->C
+End
+L1(7)->J
+L1(8)->K
+L1(9)->L
+L1(10)->M
+L1(11)->N
+L1(12)->O
+ClrHome
+AxesOff
+Pt-On(D,E)
+Pt-On(F,G)
+Pt-On(H,I)
+Pt-On(J,K)
+Pt-On(L,M)
+Pt-On(N,O)
+Lbl 1
+DispGraph
+Pause 
+Output(1,7,"(P1)")
+Lbl 2
+Prompt X,Y
+If X<1 or Y>~1
+Goto 2
+DispGraph
+Pause 
+Pt-Change(X,Y)
+Pause 
+If X=J and Y=K or X=L and Y=M or X=N and Y=O
+Then
+	Output(1,1,"HIT! (P1)-(P2)")
+	Pause 
+	If X=J and Y=K
+	0->J:0->K
+	If X=L and Y=M
+	0->L:0->M
+	If X=N and Y=O
+	0->N:0->O
+	Goto 3
+End
+Pt-Change(X,Y)
+Lbl 3
+If J=0 and K=0 and L=0 and M=00N=0 and O=0
+Goto 4
+Output(1,7,"(P2)")
+Lbl 5
+Prompt X,Y
+If X<1 or Y<1
+Goto 5
+DispGraph
+Pause 
+Pt-Change(X,Y)
+Pause 
+If X=D and Y=E or X=F and Y=G or X=H and Y=I
+Then
+	Output(1,1,"HIT! (P2)-(P1)")
+	Pause 
+	If X=D and Y=E
+	0->D:0->E
+	If X=F and Y=G
+	0->F:0->G
+	If X=H and Y=I
+	0->H:0->I
+	Goto 6
+End
+Pt-Change(X,Y)
+Lbl 6
+If D=0 and E=0 and F=0 and G=0 and H=0 and I=0
+Goto 7
+Goto 1
+Stop
+Lbl 4
+ClrHome
+Disp "PLAYER 1 WINS!!!"
+Stop
+Lbl 7
+Disp "PLAYER 2 WINS!!!"
+Stop

@@ -1,0 +1,11 @@
+
+ClrHome
+1->A
+0->B
+For(Z,1,1000)
+	sin(cos(A))->A
+	A+rand/10
+	Output(1,1,A)
+	B+A->B
+	Output(3,1,B/Z)
+End

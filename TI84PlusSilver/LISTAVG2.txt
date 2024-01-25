@@ -1,0 +1,14 @@
+
+ClrHome
+Disp "AVERAGE BY WHAT","STEP?"
+Input ":",A
+dim(L6)->N
+iPart(N/A)->N
+N->dim(L5)
+For(Z,1,N)
+	0->B
+	For(Y,0,A-1)
+		B+L6(AZ-Y)->B
+	End
+	B/A->L5(Z)
+End

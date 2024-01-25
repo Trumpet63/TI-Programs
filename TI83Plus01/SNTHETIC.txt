@@ -1,0 +1,136 @@
+
+ClrHome
+Disp "WHAT DEGREE POLY"
+Input "?",E
+E+1->dim(|LTM1)
+ClrHome
+Disp "  ENTER COEF.S  "
+0->F
+While F<=E
+	Output(2,7,"=DEGREE   "
+	Output(2,15,E-F)
+	Input " ",G
+	G->|LTM1(F+1)
+	F+1->F
+	If F>6
+	Output(2,7,"          ")
+End
+ClrHome
+1->R
+While R<3
+	Output(8,1," "
+	If R=1
+	abs(|LTM1(E+1))->N
+	If R=2
+	abs(|LTM1(1))->N
+	If R=1
+	Disp "FACTORING P..\."
+	If R=2
+	Disp "FACTORING Q..\."
+	1->A
+	0->B
+	While N/A>=sqrt(N)
+		Output(8,2,A)
+		If fPart(N/A)=0
+		Then
+			Output(8,1,"*"
+			B+1->B
+			If R=1
+			B->dim(|LTMP)
+			If R=2
+			B->dim(|LTMQ)
+			If R=1
+			A->|LTMP(B)
+			If R=2
+			A->|LTMQ(B)
+		End
+		A+1->A
+	End
+	If R=1
+	Then
+		2B->dim(|LTMP)
+		B->A
+		2A->P
+		While B<(2A)
+			B+1->B
+			N/|LTMP(B-A)->|LTMP(B)
+		End
+	End
+	If R=2
+	Then
+		2B->dim(|LTMQ)
+		B->A
+		2A->Q
+		While B<(2A)
+			B+1->B
+			N/|LTMQ(B-A)->|LTMQ(B)
+		End
+	End
+	R+1->R
+	Output(8,1,"         "
+End
+Disp "SOLVING P/Q..\."
+1->A
+1->B
+2PQ->dim(|LTPQ)
+1->C
+While A<=P
+	Output(8,1,"              ")
+	Output(8,1,100round(A/P,2))
+	While B<=Q
+		|LTMP(A)/|LTMQ(B)->|LTPQ(C)
+		~(|LTMP(A)/|LTMQ(B))->|LTPQ(C+PQ)
+		B+1->B
+		C+1->C
+	End
+	A+1->A
+	1->B
+End
+ClrHome
+SortA(|LTPQ)
+1->dim(|LTMS)
+DelVar |LTMS
+ClrDraw
+Text(57,15,"/"
+Text(57,20,2PQ
+DispGraph
+1->A
+1->B
+1->D
+While A<=2PQ
+	Text(57,0,A)
+	|LTM1(1)->C
+	2->B
+	While B<=(E+1)
+		|LTPQ(A)*C->C
+		|LTM1(B)+C->C
+		B+1->B
+	End
+	Pt-On(|LTPQ(A),C,3)
+	If C=0
+	Then
+		If D>1
+		Then
+			If |LTPQ(A)!=|LTMS(D-1)
+			Then
+				|LTPQ(A)->|LTMS(D)
+				D+1->D
+			End
+		End
+		If D=1
+		Then
+			D->dim(|LTMS)
+			|LTPQ(A)->|LTMS(D)
+			D+1->D
+		End
+	End
+	A+1->A
+End
+Pause 
+D-1->D
+0->A
+Disp "SOLUTIONS..\. X=",""
+While A<D
+	A+1->A
+	Disp |LTMS(A)
+End

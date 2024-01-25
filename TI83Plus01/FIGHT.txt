@@ -1,0 +1,254 @@
+
+Lbl 1
+ClrHome
+Menu("STREETFIGHTER 0!","NEW GAME",AA,"LOAD GAME",AB,"QUIT",AC)
+Lbl AC
+Stop
+Lbl AA
+2->dim(|LFT)
+DelVar |LFT
+0->|LFT(1)
+0->|LFT(2)
+Lbl AB
+Menu("--=FIGHT MENU=--","FIGHT",AD,"HISTORY",AE,"QUIT",AF)
+Lbl AF
+Goto 1
+Stop
+Lbl AE
+Disp "WINS=","LOSSES="
+Output(1,6,|LFT(1))
+Output(2,8,|LFT(2))
+If |LFT(2)=0
+Output(4,1,"  UNDEFEATED!!  "
+Pause 
+ClrHome
+Goto AB
+Stop
+Lbl AD
+250->A
+250->B
+0->E
+0->F
+Lbl 2
+0->C
+0->D
+ClrHome
+Disp "<---OPTIONS----\>","1:HIGH PUNCH","  5:BLOCK HIGH","2:HIGH KICK","","3:LOW PUNCH","  6:BLOCK LOW"
+Output(8,1,"4:LOW KICK")
+If E>=4
+Output(5,1,"   0:SUPER COMBO"
+Lbl 3
+0->Z
+While Z=0
+	getKey->Z
+End
+If Z=92
+1->C
+If Z=93
+2->C
+If Z=94
+3->C
+If Z=82
+4->C
+If Z=83
+5->C
+If Z=84
+6->C
+If Z=102 and E>=4
+9->C
+If C=0
+Goto 3
+randInt(1,6)->D
+If F=4
+9->D
+ClrHome
+Disp "HIM          YOU","","O              O","O              O","O              O","O              O"
+Output(8,1,B)
+Output(8,14,A)
+Pause 
+If C=5
+Then
+	Output(3,15,"<")
+	Output(4,15,"<")
+	If D=1 or D=2
+	Then
+		Output(D+2,14,"*")
+		Output(2,5,"~5 DAMAGE")
+		A+5->A
+		0->F
+	End
+End
+If C=6
+Then
+	Output(5,15,"<")
+	Output(6,15,"<")
+	If D=3 or D=4
+	Then
+		Output(D+2,14,"*")
+		Output(2,5,"~5 DAMAGE")
+		A+5->A
+		0->F
+	End
+End
+If D=5
+Then
+	Output(3,2,">"
+	Output(4,2,">"
+	If C=1 or C=2
+	Then
+		Output(C+2,3,"*")
+		Output(2,5,"~5 DAMAGE")
+		B+5->B
+		0->E
+	End
+End
+If D=6
+Then
+	Output(5,2,">"
+	Output(6,2,">"
+	If C=3 or C=4
+	Then
+		Output(C+2,3,"*")
+		Output(2,5,"~5 DAMAGE")
+		B+5->B
+		0->E
+	End
+End
+If C=D and C<5
+Then
+	C+2->K
+	2->T
+	15->U
+	While T<U
+		Output(K,T,"-"
+		Output(K,U,"-"
+		T+1->T
+		U-1->U
+	End
+	Output(K,8,"*"
+	Output(2,4,"NO DAMAGE")
+	0->E
+	0->F
+End
+If C<3 and D!=5 and C!=D or C>2 and D!=6 and C!=D and C<5
+Then
+	C+2->K
+	15->T
+	While T>1
+		Output(K,T,"-"
+		T-1->T
+	End
+	Output(K,2,"*"
+	If C=1
+	B-20->B
+	If C=2
+	B-15->B
+	If C=3
+	B-15->B
+	If C=4
+	B-10->B
+	If C=1
+	Output(2,4,20)
+	If C=2
+	Output(2,4,15)
+	If C=3
+	Output(2,4,15)
+	If C=4
+	Output(2,4,10)
+	Output(2,7,"DAMAGE")
+	E+1->E
+End
+If D<3 and C!=5 and C!=D or D>2 and C!=6 and C!=D and D<5
+Then
+	D+2->K
+	2->T
+	While T<16
+		Output(K,T,"-"
+		T+1->T
+	End
+	Output(K,15,"*")
+	If D=1
+	A-20->A
+	If D=2
+	A-15->A
+	If D=3
+	A-15->A
+	If D=4
+	A-10->A
+	If D=1
+	Output(2,4,20)
+	If D=2
+	Output(2,4,15)
+	If D=3
+	Output(2,4,15)
+	If D=4
+	Output(2,4,10)
+	Output(2,7,"DAMAGE")
+	F+1->F
+End
+If C=9
+Then
+	Output(3,2,"              ")
+	Output(4,2,"              ")
+	Output(5,2,"              ")
+	Output(6,2,"              ")
+	0->T
+	randInt(3,6)->K
+	While T<20
+		Output(K,2," "
+		randInt(3,6)->K
+		Output(K,2,"*"
+		randInt(3,6)->K
+		Output(K,2,"*"
+		T+1->T
+	End
+	Output(K,2," "
+	Output(2,4,"40 DAMAGE"
+	B-40->B
+	E-4->E
+End
+If D=9
+Then
+	Output(3,2,"              ")
+	Output(4,2,"              ")
+	Output(5,2,"              ")
+	Output(6,2,"              ")
+	0->T
+	randInt(3,6)->K
+	While T<20
+		Output(K,15," "
+		randInt(3,6)->K
+		Output(K,15,"*"
+		randInt(3,6)->K
+		Output(K,15,"*"
+		T+1->T
+	End
+	Output(K,15," "
+	Output(2,4,"40 DAMAGE")
+	A-40->A
+	F-4->F
+End
+Pause 
+Output(8,1,"                ")
+Output(8,1,B)
+Output(8,14,A)
+Pause 
+If A<=0 or B<=0
+Goto 4
+Goto 2
+Stop
+Lbl 4
+ClrHome
+If A>B
+Disp "YOU WON!"
+If A<B
+Disp "YOU LOST"
+Pause 
+ClrHome
+2->dim(|LFT)
+If A>B
+|LFT(1)+1->|LFT(1)
+If A<B
+|LFT(2)+1->|LFT(2)
+Goto AB
+Stop
